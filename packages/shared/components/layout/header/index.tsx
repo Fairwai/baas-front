@@ -7,15 +7,22 @@ import { Button } from "@repo/shared/components/ui/button"
 import { GITHUB_REPO_URL } from "@repo/shared/lib/external-urls"
 import Image from "next/image"
 import Link from "next/link"
+import { cn } from "@/lib/utils"
 
 interface HeaderProps {
   user: User
   currentPath: string
+  headerClassName?: string
 }
 
-export default function Header({ user, currentPath }: HeaderProps) {
+export default function Header({ user, currentPath, headerClassName }: HeaderProps) {
   return (
-    <header className="mx-auto box-content w-full max-w-container border-b bg-background/15 backdrop-blur-md lg:top-2 lg:mt-2 lg:w-[calc(100%-4rem)] lg:rounded-2xl lg:border">
+    <header
+      className={cn(
+        "mx-auto box-content w-full max-w-container border-b bg-background/15 backdrop-blur-md lg:top-2 lg:mt-2 lg:w-[calc(100%-4rem)] lg:rounded-2xl lg:border",
+        headerClassName
+      )}
+    >
       <nav className="flex h-12 w-full flex-row items-center justify-between px-4">
         <Link href={`${getAuthAppUrl()}/home`}>
           <div className="flex items-center gap-2">

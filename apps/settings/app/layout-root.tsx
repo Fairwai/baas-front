@@ -25,7 +25,11 @@ export default function LayoutRoot({ children, session: initialSession }: Layout
 
   return (
     <div className="[--header-height:calc(theme(spacing.12))]">
-      <Header user={session.user} currentPath={SETTINGS_URL} />
+      <Header
+        user={session.user}
+        currentPath={SETTINGS_URL}
+        headerClassName="-translate-x-1/2 fixed top-0 left-1/2 z-50"
+      />
       <div className="flex min-h-svh flex-1">
         <AppSidebar meetingBaasUser={meetingBaasUser} />
         <SidebarInset className="mt-[var(--header-height)]">

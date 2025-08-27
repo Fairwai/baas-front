@@ -12,6 +12,7 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@repo/shared": "workspace:*",
     "better-auth": "1.2.9",
     "drizzle-orm": "^0.41.0",
     "jsonwebtoken": "^9.0.2",

@@ -1,6 +1,7 @@
 import "@/app/globals.css"
 import { getAuthAppUrl } from "@repo/shared/auth/auth-app-url"
 import { getAuthSession } from "@repo/shared/auth/session"
+import { Toaster } from "@repo/shared/components/ui/sonner"
 import { BOT_ANALYTICS_URL } from "@repo/shared/lib/external-urls"
 import { isbot } from "isbot"
 import type { Metadata, Viewport } from "next"
@@ -10,7 +11,6 @@ import { redirect } from "next/navigation"
 import LayoutRoot from "@/app/layout-root"
 import NotFound from "@/app/not-found"
 import Providers from "@/components/providers"
-import { Toaster } from "@/components/ui/sonner"
 
 const sofiaSans = Sofia_Sans({
   subsets: ["latin"],

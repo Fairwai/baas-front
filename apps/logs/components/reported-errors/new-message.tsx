@@ -3,12 +3,22 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "@repo/shared/components/ui/button"
 import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from "@repo/shared/components/ui/form"
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
 } from "@repo/shared/components/ui/select"
+import { Textarea } from "@repo/shared/components/ui/textarea"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@repo/shared/components/ui/tooltip"
 import { useSession } from "@repo/shared/hooks/use-session"
 import { CircleCheck, SendHorizontal } from "lucide-react"
@@ -18,16 +28,6 @@ import type {
   UserReportedErrorMessage,
   UserReportedErrorStatus
 } from "@/components/logs-table/types"
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
-} from "@/components/ui/form"
-import { Textarea } from "@/components/ui/textarea"
 import { updateError } from "@/lib/api"
 import { type NewMessageFormData, newMessageSchema } from "@/lib/schemas/report-error"
 

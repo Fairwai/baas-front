@@ -4,12 +4,8 @@ import { signOut } from "@repo/shared/auth/sign-out"
 import type { User } from "@repo/shared/auth/types"
 import { menuOptions } from "@repo/shared/components/layout/header/menu-options"
 import { ThemeToggle } from "@repo/shared/components/layout/header/theme-toggle"
-import { Loader2, UserIcon } from "lucide-react"
-import Link from "next/link"
-import { Fragment, useState } from "react"
-import { toast } from "sonner"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
+import { Avatar, AvatarFallback, AvatarImage } from "@repo/shared/components/ui/avatar"
+import { Button } from "@repo/shared/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,7 +13,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu"
+} from "@repo/shared/components/ui/dropdown-menu"
+import { Loader2, UserIcon } from "lucide-react"
+import Link from "next/link"
+import { Fragment, useState } from "react"
+import { toast } from "sonner"
 import { genericError } from "../../../lib/errors"
 
 interface UserAvatarProps {

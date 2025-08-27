@@ -1,10 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Search, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@repo/shared/components/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -12,17 +9,25 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from "@/components/ui/dialog"
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { botSearchSchema, type BotSearchFormData } from "@/lib/schemas/bot-search"
-import { fetchLogs } from "@/lib/api"
-import { Loader2 } from "lucide-react"
-import type { FormattedBotData } from "@/components/logs-table/types"
-import { getPlatformFromUrl } from "@/lib/format-logs"
-import { toast } from "sonner"
+} from "@repo/shared/components/ui/dialog"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage
+} from "@repo/shared/components/ui/form"
+import { Input } from "@repo/shared/components/ui/input"
+import { Loader2, Search, X } from "lucide-react"
 import { motion } from "motion/react"
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 import { SearchResult } from "@/components/bot-search/search-result"
+import type { FormattedBotData } from "@/components/logs-table/types"
+import { fetchLogs } from "@/lib/api"
+import { getPlatformFromUrl } from "@/lib/format-logs"
+import { type BotSearchFormData, botSearchSchema } from "@/lib/schemas/bot-search"
 
 export function BotSearch() {
   const [open, setOpen] = useState(false)

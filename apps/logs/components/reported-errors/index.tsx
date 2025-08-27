@@ -1,5 +1,13 @@
 "use client"
 
+import { Badge } from "@repo/shared/components/ui/badge"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle
+} from "@repo/shared/components/ui/dialog"
 import { useQueryClient } from "@tanstack/react-query"
 import { useCallback, useEffect, useState } from "react"
 import type {
@@ -9,14 +17,6 @@ import type {
 } from "@/components/logs-table/types"
 import { NewMessage } from "@/components/reported-errors/new-message"
 import { ViewMessages } from "@/components/reported-errors/view-messages"
-import { Badge } from "@/components/ui/badge"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle
-} from "@/components/ui/dialog"
 import { updateError } from "@/lib/api"
 import { getErrorStatusVariant } from "@/lib/app-utils"
 

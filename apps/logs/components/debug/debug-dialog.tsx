@@ -9,6 +9,7 @@ import {
   DialogHeader,
   DialogTitle
 } from "@repo/shared/components/ui/dialog"
+import { MainTabs } from "@repo/shared/components/ui/main-tabs"
 import { genericError } from "@repo/shared/lib/errors"
 import { AI_CHAT_URL } from "@repo/shared/lib/external-urls"
 import { Download, ExternalLink, Loader2 } from "lucide-react"
@@ -17,7 +18,6 @@ import { DebugViewer } from "@/components/debug/debug-viewer"
 import { MemoryViewer } from "@/components/debug/memory-viewer"
 import { SoundViewer } from "@/components/debug/sound-viewer"
 import type { FormattedBotData } from "@/components/logs-table/types"
-import { MainTabs } from "@/components/ui/main-tabs"
 import { useDebugLogs } from "@/hooks/use-debug-logs"
 import { useSoundLogs } from "@/hooks/use-sound-logs"
 import { useSystemMetrics } from "@/hooks/use-system-metrics"

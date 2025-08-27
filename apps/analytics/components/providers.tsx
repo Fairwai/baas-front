@@ -1,9 +1,9 @@
 "use client"
 
+import { TooltipProvider } from "@repo/shared/components/ui/tooltip"
 import { JwtProvider } from "@repo/shared/contexts/jwt-context"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ThemeProvider } from "next-themes"
-import { TooltipProvider } from "@/components/ui/tooltip"
 import { SelectedBotsProvider } from "@/contexts/selected-bots-context"
 
 const queryClient = new QueryClient()

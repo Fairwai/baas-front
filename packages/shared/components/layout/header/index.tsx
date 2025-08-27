@@ -3,10 +3,10 @@ import type { User } from "@repo/shared/auth/types"
 import { GitHubLogo } from "@repo/shared/components/icons/github"
 import { ThemeToggle } from "@repo/shared/components/layout/header/theme-toggle"
 import { UserAvatar } from "@repo/shared/components/layout/header/user-avatar"
+import { Button } from "@repo/shared/components/ui/button"
 import { GITHUB_REPO_URL } from "@repo/shared/lib/external-urls"
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 
 interface HeaderProps {
   user: User

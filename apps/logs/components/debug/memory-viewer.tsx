@@ -1,18 +1,27 @@
 "use client"
 
 import { Button } from "@repo/shared/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@repo/shared/components/ui/card"
+import type { ChartConfig } from "@repo/shared/components/ui/chart"
+import { ChartContainer, ChartLegend, ChartLegendContent } from "@repo/shared/components/ui/chart"
 import { Download } from "lucide-react"
 import { useMemo } from "react"
-import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
-import type { SystemMetricsMachine, SystemMetricsPoint } from "@/components/logs-table/types"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import type { ChartConfig } from "@/components/ui/chart"
 import {
-  ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
-  ChartTooltip
-} from "@/components/ui/chart"
+  Area,
+  AreaChart,
+  ResponsiveContainer,
+  Tooltip,
+  type TooltipProps,
+  XAxis,
+  YAxis
+} from "recharts"
+import type { SystemMetricsMachine, SystemMetricsPoint } from "@/components/logs-table/types"
 
 interface MemoryViewerProps {
   metrics: SystemMetricsPoint[]
@@ -20,40 +29,20 @@ interface MemoryViewerProps {
   machine?: SystemMetricsMachine
 }
 
-interface ChartDataPoint {
-  timestamp: string
-  time: string
-  mem_mo: number
-  cpu_all: number
-  cpu_ffmpeg: number
-}
-
-interface TooltipPayloadEntry {
-  dataKey: string
-  color: string
-  value: number | string
-  name?: string
-}
-
-interface CustomTooltipProps {
-  active?: boolean
-  payload?: TooltipPayloadEntry[]
-  label?: string
-  config?: ChartConfig
-}
-
-// Custom tooltip component with larger fonts and size
-const CustomTooltip = ({ active, payload, label, config }: CustomTooltipProps) => {
+// Custom tooltip component for memory chart
+function MemoryChartTooltip(props: TooltipProps<number, string>) {
+  const { active, payload, label } = props
   if (!active || !payload || payload.length === 0) return null
 
   return (
-    <div className="bg-background border rounded-lg shadow-lg p-4 min-w-[200px]">
+    <div className="bg-background border rounded-lg shadow-lg p-4 min-w-[200px] z-50">
       <p className="font-semibold text-base mb-3 text-foreground">{label}</p>
       <div className="space-y-2">
-        {payload.map((entry: TooltipPayloadEntry) => {
-          const configItem = config?.[entry.dataKey]
+        {payload.map((entry) => {
+          const dataKey = entry.dataKey as keyof typeof metricsChartConfig
+          const configItem = metricsChartConfig[dataKey]
           const color = configItem?.color || entry.color
-          const label = configItem?.label || entry.dataKey
+          const entryLabel = configItem?.label || entry.dataKey
 
           return (
             <div key={entry.dataKey} className="flex items-center gap-2">
@@ -61,7 +50,7 @@ const CustomTooltip = ({ active, payload, label, config }: CustomTooltipProps) =
                 className="w-3 h-3 rounded-full flex-shrink-0"
                 style={{ backgroundColor: color }}
               />
-              <span className="text-sm font-medium text-foreground">{label}:</span>
+              <span className="text-sm font-medium text-foreground">{entryLabel}:</span>
               <span className="text-sm font-bold text-foreground ml-auto">
                 {typeof entry.value === "number" ? entry.value.toFixed(1) : entry.value}
               </span>
@@ -71,6 +60,14 @@ const CustomTooltip = ({ active, payload, label, config }: CustomTooltipProps) =
       </div>
     </div>
   )
+}
+
+interface ChartDataPoint {
+  timestamp: string
+  time: string
+  mem_mo: number
+  cpu_all: number
+  cpu_ffmpeg: number
 }
 
 // Using explicit colors that work well together
@@ -219,7 +216,11 @@ export function MemoryViewer({ metrics, logsUrl }: MemoryViewerProps) {
                     axisLine={false}
                     label={{ value: "CPU %", angle: 90, position: "insideRight" }}
                   />
-                  <ChartTooltip content={<CustomTooltip config={metricsChartConfig} />} />
+                  <Tooltip
+                    content={MemoryChartTooltip}
+                    cursor={false}
+                    wrapperStyle={{ outline: "none", zIndex: 10 }}
+                  />
                   <ChartLegend content={<ChartLegendContent />} />
 
                   {/* Memory in MB on left axis */}

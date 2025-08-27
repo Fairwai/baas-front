@@ -16,11 +16,17 @@ const nextConfig: NextConfig = {
   transpilePackages: ["@repo/shared"],
   async rewrites() {
     const apiServerBaseUrl = process.env.API_SERVER_BASEURL
+    const emailApiServerBaseUrl = process.env.EMAIL_API_SERVER_BASEURL
     return [
-      {
-        source: "/api/email/:path*",
-        destination: `${process.env.EMAIL_API_SERVER_BASEURL}/:path*`
-      },
+      // Only add the email API server base URL rewrite if it is defined
+      ...(emailApiServerBaseUrl
+        ? [
+            {
+              source: "/api/email/:path*",
+              destination: `${emailApiServerBaseUrl}/:path*`
+            }
+          ]
+        : []),
       {
         source: "/api/bots/:path*",
         destination: `${apiServerBaseUrl}/bots/:path*`

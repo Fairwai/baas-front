@@ -1,9 +1,13 @@
 "use client"
 
-import { Checkbox } from "@/components/ui/checkbox"
-import { Label } from "@/components/ui/label"
+import {
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@repo/shared/components/ui/accordion"
+import { Checkbox } from "@repo/shared/components/ui/checkbox"
+import { Label } from "@repo/shared/components/ui/label"
 import type { Option } from "@/lib/filter-options"
-import { AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
 interface CheckboxFilterProps {
   options: readonly Option[]

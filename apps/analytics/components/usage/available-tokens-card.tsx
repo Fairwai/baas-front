@@ -1,10 +1,17 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { cn, formatDate, formatFloat, formatPlanType, getProgressBarColors } from "@/lib/utils"
+import { Badge } from "@repo/shared/components/ui/badge"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@repo/shared/components/ui/card"
+import { BILLING_URL } from "@repo/shared/lib/external-urls"
+import { cn } from "@repo/shared/lib/utils"
 import { motion } from "motion/react"
-import type { SubscriptionPlanType } from "@/lib/types"
-import { Badge } from "@/components/ui/badge"
-import { BILLING_URL } from "@/lib/external-urls"
 import Link from "next/link"
+import { formatDate, formatFloat, formatPlanType, getProgressBarColors } from "@/lib/app-utils"
+import type { SubscriptionPlanType } from "@/lib/types"
 
 interface AvailableTokensCardProps {
   availableTokens: number
@@ -14,7 +21,7 @@ interface AvailableTokensCardProps {
 }
 
 const defaultTotalTokens = Number(process.env.NEXT_PUBLIC_DEFAULT_TOTAL_TOKENS || 8)
-const animationEase = [0.65, 0, 0.35, 1]
+const animationEase = "easeInOut" as const
 
 export function AvailableTokensCard({
   availableTokens,

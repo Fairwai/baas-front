@@ -1,14 +1,20 @@
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from "@repo/shared/components/ui/form"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select"
-import { Editor } from "@/components/ui/editor"
-import type { EmailType } from "@/lib/email-types"
+} from "@repo/shared/components/ui/select"
 import { useFormContext } from "react-hook-form"
+import { Editor } from "@/components/app-ui/editor"
+import type { EmailType } from "@/lib/email-types"
 
 interface FormFieldsProps {
   broadcastTypes: EmailType[]

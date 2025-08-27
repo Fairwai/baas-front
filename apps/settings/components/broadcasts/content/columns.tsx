@@ -1,11 +1,11 @@
 import type { ColumnDef } from "@tanstack/react-table"
 import dayjs from "dayjs"
 import utc from "dayjs/plugin/utc"
-import type { Content } from "@/lib/broadcast-types"
-import { SortableHeader } from "@/components/ui/sortable-header"
-import type { EmailType } from "@/lib/email-types"
+import { SortableHeader } from "@/components/app-ui/sortable-header"
 import { TableActions } from "@/components/broadcasts/content/table-actions"
-import { EmailIdTypeMap } from "../logs/column-helpers"
+import { EmailIdTypeMap } from "@/components/broadcasts/logs/column-helpers"
+import type { Content } from "@/lib/broadcast-types"
+import type { EmailType } from "@/lib/email-types"
 
 dayjs.extend(utc)
 

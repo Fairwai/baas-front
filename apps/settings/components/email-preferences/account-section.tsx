@@ -1,18 +1,16 @@
 "use client"
 
+import { Alert, AlertDescription, AlertTitle } from "@repo/shared/components/ui/alert"
 import { AlertCircle } from "lucide-react"
-
 import { EmailPreference } from "@/components/email-preferences/email-preference-card"
-import type { EmailDomain, EmailType } from "@/lib/email-types"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import type { EmailType } from "@/lib/email-types"
 
 interface AccountSectionProps {
-  domain: EmailDomain
   emailTypes: EmailType[]
   onUnsubscribe: (emailId: string, emailName: string) => void
 }
 
-export const AccountSection = ({ domain, emailTypes, onUnsubscribe }: AccountSectionProps) => {
+export const AccountSection = ({ emailTypes, onUnsubscribe }: AccountSectionProps) => {
   return (
     <>
       <Alert className="mb-6" variant="warning">

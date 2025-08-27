@@ -1,4 +1,6 @@
-export const sectionVariant = (delay = 0) => ({
+import type { MotionProps } from "motion/react"
+
+export const sectionVariant = (delay = 0): MotionProps => ({
   initial: { opacity: 0, y: "2%" },
   whileInView: { opacity: 1, y: "0%" },
   viewport: { once: true },

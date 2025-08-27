@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckCircle2 } from "lucide-react"
+import { Button } from "@repo/shared/components/ui/button"
 import {
   Dialog,
   DialogClose,
@@ -9,9 +9,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle
-} from "@/components/ui/dialog"
+} from "@repo/shared/components/ui/dialog"
+import { CheckCircle2 } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
-import { Button } from "@/components/ui/button"
 
 interface PaymentSuccessDialogProps {
   open: boolean

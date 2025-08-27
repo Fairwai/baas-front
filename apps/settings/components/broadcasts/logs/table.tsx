@@ -1,13 +1,6 @@
 "use client"
 
-import {
-  type ColumnDef,
-  type SortingState,
-  flexRender,
-  getCoreRowModel,
-  getSortedRowModel,
-  useReactTable
-} from "@tanstack/react-table"
+import { Button } from "@repo/shared/components/ui/button"
 
 import {
   Table,
@@ -16,16 +9,23 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
-import { useState } from "react"
-import { cn } from "@/lib/utils"
+} from "@repo/shared/components/ui/table"
+import { cn } from "@repo/shared/lib/utils"
+import {
+  type ColumnDef,
+  flexRender,
+  getCoreRowModel,
+  getSortedRowModel,
+  type SortingState,
+  useReactTable
+} from "@tanstack/react-table"
 import { Loader2, RefreshCw } from "lucide-react"
+import { useState } from "react"
 import type { DateValueType } from "react-tailwindcss-datepicker"
 import { DateRangeFilter } from "@/components/broadcasts/logs/date-range-filter"
+import { Filters } from "@/components/broadcasts/logs/filters"
 import { PageSizeSelector } from "@/components/broadcasts/logs/page-size-selector"
 import type { EmailLog } from "@/lib/broadcast-types"
-import { Filters } from "@/components/broadcasts/logs/filters"
 import type { FilterState } from "@/lib/filter-options"
 
 interface DataTableProps<TData extends EmailLog, TValue> {

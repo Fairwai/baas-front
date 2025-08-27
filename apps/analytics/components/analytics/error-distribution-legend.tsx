@@ -1,17 +1,22 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
-import { cn } from "@/lib/utils"
-import { CheckSquare, RotateCcw, Square } from "lucide-react"
-import { motion, AnimatePresence } from "motion/react"
-import { formatNumber } from "@/lib/utils"
-import type { ErrorDistribution } from "@/lib/types"
+import { Button } from "@repo/shared/components/ui/button"
+import { ScrollArea } from "@repo/shared/components/ui/scroll-area"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from "@repo/shared/components/ui/tooltip"
+import { cn } from "@repo/shared/lib/utils"
 import { scaleOrdinal } from "d3-scale"
 import { schemeTableau10 } from "d3-scale-chromatic"
+import { CheckSquare, RotateCcw, Square } from "lucide-react"
+import { AnimatePresence, motion } from "motion/react"
 import { useMemo } from "react"
+import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
+import type { ErrorDistribution } from "@/lib/types"
+import { formatNumber } from "@/lib/utils"
 
 interface ErrorDistributionLegendProps {
   errorDistributionData: ErrorDistribution[]

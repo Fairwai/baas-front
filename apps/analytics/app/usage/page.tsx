@@ -1,5 +1,5 @@
-import Usage from "@/components/usage"
 import type { Metadata } from "next"
+import Usage from "@/components/usage"
 
 export const metadata: Metadata = {
   title: "Usage | Meeting BaaS",

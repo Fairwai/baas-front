@@ -1,12 +1,14 @@
+import { PRICING_URL } from "@repo/shared/lib/external-urls"
 import type { Metadata } from "next"
-import { fetchAllProducts } from "@/lib/plans/server-api"
 import { cache } from "react"
-import { formatData } from "@/lib/plans/format-data"
 import Pricing from "@/components/pricing"
+import { formatData } from "@/lib/plans/format-data"
+import { fetchAllProducts } from "@/lib/plans/server-api"
 
 const fetchCachedProducts = cache(fetchAllProducts)
 
 export const metadata: Metadata = {
+  metadataBase: new URL(PRICING_URL),
   title: "Pricing | Meeting BaaS",
   description:
     "Flexible pricing tiers from starter to enterprise, with pay-as-you-go token packs. Scale your meeting bot operations efficiently.",
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
     description:
       "Flexible pricing tiers from starter to enterprise, with pay-as-you-go token packs.",
     siteName: "Meeting BaaS",
-    url: "https://pricing.meetingbaas.com/pricing",
+    url: `${PRICING_URL}/pricing`,
     locale: "en_US",
     images: [
       {

@@ -1,5 +1,5 @@
+import { getEnvVar } from "@/lib/app-utils"
 import type { ProductFetchResponse } from "@/lib/plans/types"
-import { getEnvVar } from "@/lib/utils"
 
 const apiServerBaseUrl = getEnvVar("API_SERVER_BASEURL")
 // API Plans

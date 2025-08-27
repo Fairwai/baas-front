@@ -1,5 +1,5 @@
+import { getAuthAppUrl } from "@repo/shared/auth/auth-app-url"
 import type { Feature, PlanFeature, PlanInfo, PlanType } from "@/lib/plans/types"
-import { getAuthAppUrl } from "@/lib/auth/auth-app-url"
 
 export const packFeatures: Record<PlanType, Feature[]> = {
   // API plans

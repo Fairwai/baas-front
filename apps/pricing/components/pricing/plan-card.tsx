@@ -1,6 +1,5 @@
-import type { PlanInfo } from "@/lib/plans/types"
-import { cn } from "@/lib/utils"
-import { Check } from "lucide-react"
+import { Badge } from "@repo/shared/components/ui/badge"
+import { Button } from "@repo/shared/components/ui/button"
 import {
   Card,
   CardContent,
@@ -8,12 +7,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle
-} from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+} from "@repo/shared/components/ui/card"
+import { cn } from "@repo/shared/lib/utils"
+import { Check } from "lucide-react"
 import { motion } from "motion/react"
-import { spotlightVariant } from "@/components/animations/background"
-import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { spotlightVariant } from "@/components/animations/background"
+import type { PlanInfo } from "@/lib/plans/types"
 
 interface PlanCardProps {
   plan: PlanInfo
@@ -30,7 +30,7 @@ export function PlanCard({
     <Card className={cn("relative", isHighlighted && "border-primary")}>
       {isHighlighted && (
         <>
-          <Badge variant="primary" className="-top-4 -translate-x-1/2 absolute left-1/2">
+          <Badge variant="default" className="-top-4 -translate-x-1/2 absolute left-1/2">
             Most Popular
           </Badge>
           <motion.div
@@ -64,8 +64,8 @@ export function PlanCard({
             <Check className="size-4 text-primary" />
             {plan.requestsPerSecond} Requests/Second
           </li>
-          {plan.features.map((feature, index) => (
-            <li key={index} className="flex items-center gap-2">
+          {plan.features.map((feature) => (
+            <li key={feature} className="flex items-center gap-2">
               <Check className="size-4 text-primary" />
               <span>{feature}</span>
             </li>

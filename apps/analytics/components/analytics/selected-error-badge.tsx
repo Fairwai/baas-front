@@ -1,8 +1,8 @@
-import { cn } from "@/lib/utils"
-import { Badge } from "@/components/ui/badge"
-import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
-import { Button } from "@/components/ui/button"
+import { Badge } from "@repo/shared/components/ui/badge"
+import { Button } from "@repo/shared/components/ui/button"
+import { cn } from "@repo/shared/lib/utils"
 import { X } from "lucide-react"
+import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
 
 interface SelectedErrorBadgeProps {
   label?: string

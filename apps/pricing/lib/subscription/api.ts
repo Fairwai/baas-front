@@ -1,5 +1,4 @@
 import type { CheckoutMode, SubscriptionResponse } from "@/lib/subscription/types"
-import type { PlanType } from "@/lib/plans/types"
 
 /**
  * Fetches User's subscription info on the client side

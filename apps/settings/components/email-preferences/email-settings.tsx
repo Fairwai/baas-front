@@ -1,10 +1,10 @@
 "use client"
 
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@repo/shared/components/ui/badge"
 
 import { EmailPreference } from "@/components/email-preferences/email-preference-card"
-import type { EmailType } from "@/lib/email-types"
 import { useEmailPreferences } from "@/hooks/use-email-preferences"
+import type { EmailType } from "@/lib/email-types"
 
 interface EmailSettingsProps {
   emailTypes: EmailType[]

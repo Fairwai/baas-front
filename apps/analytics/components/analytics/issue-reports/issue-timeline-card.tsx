@@ -1,20 +1,26 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer } from "@/components/ui/chart"
-import { formatNumber } from "@/lib/utils"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@repo/shared/components/ui/card"
+import { ChartContainer } from "@repo/shared/components/ui/chart"
+import { formatNumber } from "@repo/shared/lib/utils"
 import dayjs from "dayjs"
 import { useMemo } from "react"
 import {
+  CartesianGrid,
+  Legend,
   Line,
   LineChart,
-  CartesianGrid,
+  type TooltipProps as RechartsTooltipProps,
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis,
-  type TooltipProps as RechartsTooltipProps,
-  Legend
+  YAxis
 } from "recharts"
 import type { IssueReportTimelineEntry } from "@/lib/types"
 

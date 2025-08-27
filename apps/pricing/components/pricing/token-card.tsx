@@ -1,3 +1,5 @@
+import { Badge } from "@repo/shared/components/ui/badge"
+import { Button } from "@repo/shared/components/ui/button"
 import {
   Card,
   CardContent,
@@ -5,15 +7,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle
-} from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+} from "@repo/shared/components/ui/card"
 import { Check, Percent } from "lucide-react"
-import type { TokenPackInfo, PlanInfo, PlanType } from "@/lib/plans/types"
-import { spotlightVariant } from "@/components/animations/background"
 import { motion } from "motion/react"
-import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { formatPrice } from "@/lib/utils"
+import { spotlightVariant } from "@/components/animations/background"
+import { formatPrice } from "@/lib/app-utils"
+import type { PlanInfo, PlanType, TokenPackInfo } from "@/lib/plans/types"
 
 interface TokenCardProps {
   pack: TokenPackInfo
@@ -47,7 +47,7 @@ export function TokenCard({
     <Card className={`relative h-full ${isHighlighted ? "border-primary" : ""}`}>
       {isHighlighted && (
         <>
-          <Badge variant="primary" className="-top-3 -translate-x-1/2 absolute left-1/2">
+          <Badge variant="default" className="-top-3 -translate-x-1/2 absolute left-1/2">
             Best Value
           </Badge>
           <motion.div
@@ -102,8 +102,8 @@ export function TokenCard({
           <span className="pb-0.5 text-muted-foreground">tokens</span>
         </div>
         <ul className="my-6 space-y-4 text-sm">
-          {pack.features.map((feature, index) => (
-            <li key={index} className="flex items-center gap-2">
+          {pack.features.map((feature) => (
+            <li key={feature} className="flex items-center gap-2">
               <Check className="size-4 text-primary" />
               <span className="text-muted-foreground text-sm">{feature}</span>
             </li>

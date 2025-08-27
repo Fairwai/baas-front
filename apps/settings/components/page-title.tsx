@@ -1,4 +1,4 @@
-import { SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarTrigger } from "@repo/shared/components/ui/sidebar"
 
 interface PageTitleProps {
   title: string

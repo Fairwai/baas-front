@@ -1,20 +1,20 @@
 "use client"
 
-import { planComparisonFeatures } from "@/lib/plans/constants"
-import { Button } from "@/components/ui/button"
-import { CircleCheck, HelpCircle } from "lucide-react"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import type { PlanInfo } from "@/lib/plans/types"
+import { Button } from "@repo/shared/components/ui/button"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select"
-import { useState } from "react"
+} from "@repo/shared/components/ui/select"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@repo/shared/components/ui/tooltip"
+import { cn } from "@repo/shared/lib/utils"
+import { CircleCheck, HelpCircle } from "lucide-react"
 import Link from "next/link"
-import { cn } from "@/lib/utils"
+import { useState } from "react"
+import { planComparisonFeatures } from "@/lib/plans/constants"
+import type { PlanInfo } from "@/lib/plans/types"
 
 interface ComparePlansProps {
   plans: PlanInfo[]

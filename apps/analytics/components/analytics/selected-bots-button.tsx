@@ -1,25 +1,24 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Trash2 } from "lucide-react"
-import { useSelectedBots } from "@/hooks/use-selected-bots"
-import { motion, AnimatePresence } from "motion/react"
-import { MousePointerClick } from "lucide-react"
-import { useScrollOpacity } from "@/hooks/use-scroll-opacity"
-import { useEffect, useState, useMemo } from "react"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger
-} from "@/components/ui/accordion"
+} from "@repo/shared/components/ui/accordion"
+import { Button } from "@repo/shared/components/ui/button"
+import { ExternalLink, MousePointerClick, Trash2 } from "lucide-react"
+import { AnimatePresence, motion } from "motion/react"
+import { useEffect, useMemo, useState } from "react"
 import {
-  containerVariants,
-  containerTransition,
-  allLogsButtonVariants,
   allLogsButtonTransition,
-  childrenVariants
+  allLogsButtonVariants,
+  childrenVariants,
+  containerTransition,
+  containerVariants
 } from "@/components/animations/selected-bots"
+import { useScrollOpacity } from "@/hooks/use-scroll-opacity"
+import { useSelectedBots } from "@/hooks/use-selected-bots"
 
 interface SelectedBotsButtonProps {
   dateRange: { startDate: Date | null; endDate: Date | null }

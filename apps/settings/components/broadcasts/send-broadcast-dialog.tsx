@@ -1,25 +1,25 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { Button } from "@repo/shared/components/ui/button"
 import {
   Dialog,
+  DialogClose,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
   DialogDescription,
-  DialogClose
-} from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
+  DialogFooter,
+  DialogHeader,
+  DialogTitle
+} from "@repo/shared/components/ui/dialog"
+import { useSession } from "@repo/shared/hooks/use-session"
+import { Loader2 } from "lucide-react"
+import { useEffect, useState } from "react"
+import { BroadcastStatus } from "@/components/broadcasts/broadcast-status"
+import { NoRecipientsAlert } from "@/components/broadcasts/no-recipients-alert"
+import { useBroadcastRecipients } from "@/hooks/use-broadcast-recipients"
+import { useBroadcastSender } from "@/hooks/use-broadcast-sender"
 import type { Content, Recipient } from "@/lib/broadcast-types"
 import type { EmailFrequency, EmailType } from "@/lib/email-types"
-import { Loader2 } from "lucide-react"
-import { useSession } from "@/hooks/use-session"
-import { useBroadcastSender } from "@/hooks/use-broadcast-sender"
-import { useBroadcastRecipients } from "@/hooks/use-broadcast-recipients"
-import { BroadcastStatus } from "@/components/broadcasts/broadcast-status"
 import type { BroadcastFormValues } from "@/lib/schemas/broadcast"
-import { NoRecipientsAlert } from "@/components/broadcasts/no-recipients-alert"
 
 interface SendBroadcastDialogProps {
   open: boolean
@@ -94,7 +94,7 @@ export function SendBroadcastDialog({
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent showCloseButton={!isSending}>
+      <DialogContent hideCloseButton={isSending}>
         <DialogHeader>
           <DialogTitle>Send Broadcast</DialogTitle>
           <DialogDescription className="sr-only">

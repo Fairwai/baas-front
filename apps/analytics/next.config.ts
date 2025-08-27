@@ -7,6 +7,7 @@ if (!process.env.API_SERVER_BASEURL) {
 }
 
 const nextConfig: NextConfig = {
+  transpilePackages: ["@repo/shared"],
   async rewrites() {
     return [
       {

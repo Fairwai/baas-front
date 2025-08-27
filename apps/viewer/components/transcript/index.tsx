@@ -1,13 +1,13 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import type { Transcript, Word } from "@/types/meeting-data"
+import { Button } from "@repo/shared/components/ui/button"
 import dayjs from "dayjs"
 import duration from "dayjs/plugin/duration"
 import { Loader2 } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { scroller } from "react-scroll"
-import HighlightedWord from "./highlighted-word"
+import HighlightedWord from "@/components/transcript/highlighted-word"
+import type { Transcript, Word } from "@/types/meeting-data"
 
 dayjs.extend(duration)
 
@@ -101,33 +101,34 @@ export default function TranscriptViewer({
         </div>
       )}
 
-      {!isLoading && transcripts.map((transcript) => (
-        <div
-          key={transcript.id}
-          id={`transcript-${transcript.id}`}
-          data-transcript-id={transcript.id}
-          className="my-4"
-        >
-          <div className="mb-0.5 flex items-center gap-3 text-muted-foreground">
-            <span className="font-semibold text-sm">{transcript.speaker}</span>{" "}
-            <span className="font-light text-xs">
-              {dayjs.duration(transcript.start_time * 1000).format("mm:ss")}
-            </span>
+      {!isLoading &&
+        transcripts.map((transcript) => (
+          <div
+            key={transcript.id}
+            id={`transcript-${transcript.id}`}
+            data-transcript-id={transcript.id}
+            className="my-4"
+          >
+            <div className="mb-0.5 flex items-center gap-3 text-muted-foreground">
+              <span className="font-semibold text-sm">{transcript.speaker}</span>{" "}
+              <span className="font-light text-xs">
+                {dayjs.duration(transcript.start_time * 1000).format("mm:ss")}
+              </span>
+            </div>
+            <div className="text-sm">
+              {transcript.words.map((word, index) => (
+                <HighlightedWord
+                  key={word.id}
+                  word={word}
+                  isActive={word.id === activeWordId}
+                  isNext={transcript.words[index + 1]?.id === activeWordId}
+                  isPrevious={transcript.words[index - 1]?.id === activeWordId}
+                  onWordClick={handleWordClick}
+                />
+              ))}
+            </div>
           </div>
-          <div className="text-sm">
-            {transcript.words.map((word, index) => (
-              <HighlightedWord
-                key={word.id}
-                word={word}
-                isActive={word.id === activeWordId}
-                isNext={transcript.words[index + 1]?.id === activeWordId}
-                isPrevious={transcript.words[index - 1]?.id === activeWordId}
-                onWordClick={handleWordClick}
-              />
-            ))}
-          </div>
-        </div>
-      ))}
+        ))}
     </div>
   )
 }

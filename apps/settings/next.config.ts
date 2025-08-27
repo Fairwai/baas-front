@@ -6,13 +6,8 @@ if (!process.env.API_SERVER_BASEURL) {
   )
 }
 
-if (!process.env.EMAIL_API_SERVER_BASEURL) {
-  throw new Error(
-    "EMAIL_API_SERVER_BASEURL environment variable is required. Please set it in your .env file."
-  )
-}
-
 const nextConfig: NextConfig = {
+  transpilePackages: ["@repo/shared"],
   async rewrites() {
     return [
       {

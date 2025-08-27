@@ -1,8 +1,16 @@
 "use client"
 
-import { CheckboxFilter } from "@/components/filters/checkbox-filter"
-import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Accordion } from "@repo/shared/components/ui/accordion"
+import { Button } from "@repo/shared/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage
+} from "@repo/shared/components/ui/form"
+import { ScrollArea } from "@repo/shared/components/ui/scroll-area"
 import {
   Sheet,
   SheetContent,
@@ -10,16 +18,14 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger
-} from "@/components/ui/sheet"
-import { filtersFields } from "@/lib/filter-options"
-import { filtersSchema, type FiltersFormData } from "@/lib/schemas/filters"
-import type { FilterState } from "@/lib/types"
-import { zodResolver } from "@hookform/resolvers/zod"
+} from "@repo/shared/components/ui/sheet"
 import { Filter, FunnelX } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Accordion } from "@/components/ui/accordion"
+import { CheckboxFilter } from "@/components/filters/checkbox-filter"
+import { filtersFields } from "@/lib/filter-options"
+import { type FiltersFormData, filtersSchema } from "@/lib/schemas/filters"
+import type { FilterState } from "@/lib/types"
 
 const emptyFilters = {
   platformFilters: [],

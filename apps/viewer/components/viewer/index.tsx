@@ -1,11 +1,11 @@
 "use client"
 
-import TranscriptViewer from "@/components/transcript"
-import type { VideoPlayerProps } from "@/components/video-player"
-import type { MeetingDataResponse } from "@/types/meeting-data"
 import dynamic from "next/dynamic"
 import { useState } from "react"
-import { VideoDetails } from "../video-player/video-details"
+import TranscriptViewer from "@/components/transcript"
+import type { VideoPlayerProps } from "@/components/video-player"
+import { VideoDetails } from "@/components/video-player/video-details"
+import type { MeetingDataResponse } from "@/types/meeting-data"
 
 const VideoPlayer = dynamic(() => import("@/components/video-player"), { ssr: false })
 

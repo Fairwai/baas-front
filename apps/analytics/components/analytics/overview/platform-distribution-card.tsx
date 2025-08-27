@@ -1,22 +1,29 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer } from "@/components/ui/chart"
-import { cn, formatNumber, formatPercentage, platformGradients } from "@/lib/utils"
+import { AnimatedNumber } from "@repo/shared/components/ui/animated-number"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@repo/shared/components/ui/card"
+import { ChartContainer } from "@repo/shared/components/ui/chart"
+import { cn, formatNumber } from "@repo/shared/lib/utils"
 import { useMemo } from "react"
 import {
   Bar,
   BarChart,
-  ResponsiveContainer,
-  Tooltip,
-  type TooltipProps as RechartsTooltipProps,
-  XAxis,
   Cell,
   LabelList,
   type LabelProps,
+  type TooltipProps as RechartsTooltipProps,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
   YAxis
 } from "recharts"
-import { AnimatedNumber } from "@/components/ui/animated-number"
+import { formatPercentage, platformGradients } from "@/lib/app-utils"
 import type { PlatformDistribution } from "@/lib/types"
 
 interface PlatformDistributionCardProps {

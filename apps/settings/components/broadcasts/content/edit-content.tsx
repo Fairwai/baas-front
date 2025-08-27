@@ -1,23 +1,23 @@
-import type { Content } from "@/lib/broadcast-types"
-import type { EmailType } from "@/lib/email-types"
-import { contentFormSchema, type ContentFormValues } from "@/lib/schemas/content"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { Form } from "@/components/ui/form"
-import { FormFields } from "@/components/broadcasts/content/form-fields"
-import type { DialogState } from "@/components/broadcasts/content/table-actions"
+import { Button } from "@repo/shared/components/ui/button"
 import {
   Dialog,
+  DialogClose,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
   DialogDescription,
   DialogFooter,
-  DialogClose
-} from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
+  DialogHeader,
+  DialogTitle
+} from "@repo/shared/components/ui/dialog"
+import { Form } from "@repo/shared/components/ui/form"
 import { Loader2 } from "lucide-react"
+import { useForm } from "react-hook-form"
+import { FormFields } from "@/components/broadcasts/content/form-fields"
+import type { DialogState } from "@/components/broadcasts/content/table-actions"
 import { useContents } from "@/hooks/use-contents"
+import type { Content } from "@/lib/broadcast-types"
+import type { EmailType } from "@/lib/email-types"
+import { type ContentFormValues, contentFormSchema } from "@/lib/schemas/content"
 
 interface EditContentProps {
   broadcastTypes: EmailType[]

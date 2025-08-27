@@ -1,27 +1,34 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer } from "@/components/ui/chart"
-import { formatDuration, formatNumber } from "@/lib/utils"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@repo/shared/components/ui/card"
+import { ChartContainer } from "@repo/shared/components/ui/chart"
+import { formatNumber } from "@repo/shared/lib/utils"
+import { scaleOrdinal } from "d3-scale"
+import { schemePaired } from "d3-scale-chromatic"
+import dayjs from "dayjs"
 import { useMemo } from "react"
 import {
+  CartesianGrid,
+  Legend,
   Line,
   LineChart,
+  type TooltipProps as RechartsTooltipProps,
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis,
-  Legend,
-  type TooltipProps as RechartsTooltipProps,
-  CartesianGrid
+  YAxis
 } from "recharts"
-import dayjs from "dayjs"
-import { scaleOrdinal } from "d3-scale"
-import { schemePaired } from "d3-scale-chromatic"
-import type { DurationTimelineEntry } from "@/lib/types"
 import { SelectedErrorBadge } from "@/components/analytics/selected-error-badge"
-import { getDurationTimelineData } from "@/lib/format-bot-stats"
 import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
+import { formatDuration } from "@/lib/app-utils"
+import { getDurationTimelineData } from "@/lib/format-bot-stats"
+import type { DurationTimelineEntry } from "@/lib/types"
 
 function DurationTimelineTooltip(props: RechartsTooltipProps<number, string>) {
   const { active, payload, label } = props

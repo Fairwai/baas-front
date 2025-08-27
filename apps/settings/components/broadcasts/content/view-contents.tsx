@@ -1,11 +1,11 @@
 "use client"
 
-import { DataTable } from "@/components/ui/data-table"
+import { Loader2 } from "lucide-react"
+import { useMemo } from "react"
+import { DataTable } from "@/components/app-ui/data-table"
+import { baseContentColumns } from "@/components/broadcasts/content/columns"
 import { useContents } from "@/hooks/use-contents"
 import type { EmailType } from "@/lib/email-types"
-import { Loader2 } from "lucide-react"
-import { baseContentColumns } from "@/components/broadcasts/content/columns"
-import { useMemo } from "react"
 
 interface ViewContentsProps {
   broadcastTypes: EmailType[]

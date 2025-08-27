@@ -1,23 +1,30 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer } from "@/components/ui/chart"
-import { formatDuration, formatNumber, platformColors } from "@/lib/utils"
+import { AnimatedNumber } from "@repo/shared/components/ui/animated-number"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@repo/shared/components/ui/card"
+import { ChartContainer } from "@repo/shared/components/ui/chart"
+import { formatNumber } from "@repo/shared/lib/utils"
+import { AnimatePresence, motion } from "motion/react"
 import { useMemo } from "react"
 import {
   Cell,
   Pie,
   PieChart,
+  type TooltipProps as RechartsTooltipProps,
   ResponsiveContainer,
-  Tooltip,
-  type TooltipProps as RechartsTooltipProps
+  Tooltip
 } from "recharts"
-import { AnimatedNumber } from "@/components/ui/animated-number"
-import { motion, AnimatePresence } from "motion/react"
-import type { PlatformDurationEntry } from "@/lib/types"
 import { SelectedErrorBadge } from "@/components/analytics/selected-error-badge"
 import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
+import { formatDuration, platformColors } from "@/lib/app-utils"
 import { getPlatformDurationData } from "@/lib/format-bot-stats"
+import type { PlatformDurationEntry } from "@/lib/types"
 
 function DurationPlatformTooltip(props: RechartsTooltipProps<number, string>) {
   const { active, payload } = props

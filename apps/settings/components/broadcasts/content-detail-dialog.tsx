@@ -4,12 +4,12 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle
-} from "@/components/ui/dialog"
+} from "@repo/shared/components/ui/dialog"
+import { cn } from "@repo/shared/lib/utils"
 import DOMPurify from "dompurify"
-import type { Content } from "@/lib/broadcast-types"
-import { cn } from "@/lib/utils"
 import { useMemo } from "react"
 import type { DialogState } from "@/components/broadcasts/content/table-actions"
+import type { Content } from "@/lib/broadcast-types"
 
 interface ContentDetailDialogProps {
   content: Content["content"]

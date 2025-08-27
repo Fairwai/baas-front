@@ -1,10 +1,10 @@
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import type { SubscriptionResponse } from "@/lib/subscription/types"
-import type { PlanInfo } from "@/lib/plans/types"
-import { AccordionTrigger } from "@/components/ui/accordion"
+import { AccordionTrigger } from "@repo/shared/components/ui/accordion"
+import { Badge } from "@repo/shared/components/ui/badge"
+import { Card, CardContent, CardHeader, CardTitle } from "@repo/shared/components/ui/card"
 import { Loader2 } from "lucide-react"
+import type { PlanInfo } from "@/lib/plans/types"
 import { subscriptionStatuses } from "@/lib/subscription/constants"
+import type { SubscriptionResponse } from "@/lib/subscription/types"
 
 interface CurrentPlanCardProps {
   subscription: SubscriptionResponse

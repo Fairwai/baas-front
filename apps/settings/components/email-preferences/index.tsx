@@ -1,18 +1,18 @@
 "use client"
 
-import { useEmailPreferences } from "@/hooks/use-email-preferences"
-import type { DomainConfig, EmailType } from "@/lib/email-types"
 import { Loader2 } from "lucide-react"
 import { useState } from "react"
+import { AccountSection } from "@/components/email-preferences/account-section"
 import { getDomainFrequency } from "@/components/email-preferences/domain-frequency"
 import { DomainHeader } from "@/components/email-preferences/domain-header"
-import { ServiceWideControls } from "@/components/email-preferences/service-wide-controls"
-import { EmailSettings } from "@/components/email-preferences/email-settings"
-import { UnsubscribedState } from "@/components/email-preferences/unsubscribed-state"
-import { EmailPreference } from "@/components/email-preferences/email-preference-card"
-import { AccountSection } from "@/components/email-preferences/account-section"
-import { UnsubscribeDialog } from "@/components/email-preferences/unsubscribe-dialog"
 import { getEmailsByDomain } from "@/components/email-preferences/email-categories"
+import { EmailPreference } from "@/components/email-preferences/email-preference-card"
+import { EmailSettings } from "@/components/email-preferences/email-settings"
+import { ServiceWideControls } from "@/components/email-preferences/service-wide-controls"
+import { UnsubscribeDialog } from "@/components/email-preferences/unsubscribe-dialog"
+import { UnsubscribedState } from "@/components/email-preferences/unsubscribed-state"
+import { useEmailPreferences } from "@/hooks/use-email-preferences"
+import type { DomainConfig, EmailType } from "@/lib/email-types"
 
 type ConfirmDialog = {
   isOpen: boolean
@@ -117,7 +117,6 @@ export default function DomainEmailPreferences({
         </>
       ) : (
         <AccountSection
-          domain={domainConfig.type}
           emailTypes={domainEmails}
           onUnsubscribe={(emailType: string, emailName: string) =>
             setConfirmDialog({

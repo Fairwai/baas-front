@@ -1,6 +1,6 @@
-import { opacityVariant } from "@/components/animations/opacity"
-import { cn } from "@/lib/utils"
+import { cn } from "@repo/shared/lib/utils"
 import { motion } from "motion/react"
+import { opacityVariant } from "@/components/animations/opacity"
 
 interface HeadingProps {
   text: string

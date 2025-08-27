@@ -5,11 +5,11 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger
-} from "@/components/ui/accordion"
-import { faqs } from "@/lib/plans/faq"
-import { Heading } from "@/components/layout/heading"
+} from "@repo/shared/components/ui/accordion"
 import { motion } from "motion/react"
 import { sectionVariant } from "@/components/animations/section"
+import { Heading } from "@/components/layout/heading"
+import { faqs } from "@/lib/plans/faq"
 
 export function FAQSection() {
   return (
@@ -21,7 +21,7 @@ export function FAQSection() {
       <div>
         <Accordion type="multiple" className="w-full">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
+            <AccordionItem key={faq.question} value={`item-${index}`}>
               <AccordionTrigger className="text-left font-medium text-lg">
                 {faq.question}
               </AccordionTrigger>

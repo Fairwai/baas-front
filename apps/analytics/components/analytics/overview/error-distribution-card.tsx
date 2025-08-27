@@ -1,27 +1,33 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer } from "@/components/ui/chart"
-import { formatNumber, formatPercentage } from "@/lib/utils"
-import { useMemo, useState, useEffect, useCallback } from "react"
+import { AnimatedNumber } from "@repo/shared/components/ui/animated-number"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@repo/shared/components/ui/card"
+import { ChartContainer } from "@repo/shared/components/ui/chart"
+import { formatNumber } from "@repo/shared/lib/utils"
+import { scaleOrdinal } from "d3-scale"
+import { schemeTableau10 } from "d3-scale-chromatic"
+import { debounce } from "lodash-es"
+import { AnimatePresence, motion } from "motion/react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import {
   Cell,
   Pie,
   PieChart,
-  ResponsiveContainer,
   Tooltip as RechartsTooltip,
-  type TooltipProps as RechartsTooltipProps
+  type TooltipProps as RechartsTooltipProps,
+  ResponsiveContainer
 } from "recharts"
-import { scaleOrdinal } from "d3-scale"
-import { schemeTableau10 } from "d3-scale-chromatic"
-import { motion, AnimatePresence } from "motion/react"
-import { AnimatedNumber } from "@/components/ui/animated-number"
-import type { ErrorDistribution } from "@/lib/types"
-import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
-import { useSelectedBots } from "@/hooks/use-selected-bots"
-import type { FormattedBotData } from "@/lib/types"
-import { debounce } from "lodash-es"
 import { ErrorDistributionLegend } from "@/components/analytics/error-distribution-legend"
+import { useSelectedBots } from "@/hooks/use-selected-bots"
+import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
+import { formatPercentage } from "@/lib/app-utils"
+import type { ErrorDistribution, FormattedBotData } from "@/lib/types"
 
 interface ErrorDistributionCardProps {
   errorDistributionData: ErrorDistribution[]

@@ -1,9 +1,9 @@
 "use client"
 
-import { createContext, useState, useEffect, type ReactNode, useCallback, useMemo } from "react"
+import { useSession } from "@repo/shared/hooks/use-session"
+import { createContext, type ReactNode, useCallback, useEffect, useMemo, useState } from "react"
+import { isMeetingBaasUser } from "@/lib/app-utils"
 import type { ErrorDistribution, FormattedBotData } from "@/lib/types"
-import { useSession } from "@/hooks/use-session"
-import { isMeetingBaasUser } from "@/lib/utils"
 
 export const SELECTED_ERROR_STORAGE_KEY = "analytics-selected-errors"
 

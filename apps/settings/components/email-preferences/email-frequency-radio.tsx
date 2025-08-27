@@ -1,7 +1,7 @@
+import { Label } from "@repo/shared/components/ui/label"
+import { RadioGroupItem } from "@repo/shared/components/ui/radio-group"
+import { cn } from "@repo/shared/lib/utils"
 import type { DomainConfig, EmailFrequency, EmailType } from "@/lib/email-types"
-import { cn } from "@/lib/utils"
-import { RadioGroupItem } from "@/components/ui/radio-group"
-import { Label } from "@/components/ui/label"
 
 interface EmailFrequencyRadioProps {
   frequency: EmailFrequency

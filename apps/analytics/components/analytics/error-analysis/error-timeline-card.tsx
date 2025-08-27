@@ -1,27 +1,33 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer } from "@/components/ui/chart"
-import { formatNumber } from "@/lib/utils"
-import { useMemo } from "react"
 import {
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-  Legend,
-  type TooltipProps as RechartsTooltipProps,
-  CartesianGrid
-} from "recharts"
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@repo/shared/components/ui/card"
+import { ChartContainer } from "@repo/shared/components/ui/chart"
+import { formatNumber } from "@repo/shared/lib/utils"
 import { scaleOrdinal } from "d3-scale"
 import { schemeTableau10 } from "d3-scale-chromatic"
 import dayjs from "dayjs"
-import type { TimelineEntry } from "@/lib/types"
+import { useMemo } from "react"
+import {
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  type TooltipProps as RechartsTooltipProps,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis
+} from "recharts"
+import { SelectedErrorBadge } from "@/components/analytics/selected-error-badge"
 import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
 import { getTimelineData } from "@/lib/format-bot-stats"
-import { SelectedErrorBadge } from "@/components/analytics/selected-error-badge"
+import type { TimelineEntry } from "@/lib/types"
 
 function ErrorTimelineTooltip(props: RechartsTooltipProps<number, string>) {
   const { active, payload, label } = props

@@ -1,9 +1,9 @@
 "use client"
 
+import { SidebarProvider } from "@repo/shared/components/ui/sidebar"
+import { JwtProvider } from "@repo/shared/contexts/jwt-context"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ThemeProvider } from "next-themes"
-import { SidebarProvider } from "@/components/ui/sidebar"
-import { JwtProvider } from "@/contexts/jwt-context"
 
 const queryClient = new QueryClient()
 

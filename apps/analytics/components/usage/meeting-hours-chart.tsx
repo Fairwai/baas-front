@@ -1,3 +1,7 @@
+import { ChartContainer } from "@repo/shared/components/ui/chart"
+import { schemeCategory10 } from "d3-scale-chromatic"
+import dayjs from "dayjs"
+import type { TooltipProps as RechartsTooltipProps } from "recharts"
 import {
   CartesianGrid,
   Legend,
@@ -8,12 +12,8 @@ import {
   XAxis,
   YAxis
 } from "recharts"
-import type { TooltipProps as RechartsTooltipProps } from "recharts"
-import { ChartContainer } from "@/components/ui/chart"
-import { formatFloat } from "@/lib/utils"
+import { formatFloat } from "@/lib/app-utils"
 import type { ConsumptionChartData } from "@/lib/types"
-import dayjs from "dayjs"
-import { schemeCategory10 } from "d3-scale-chromatic"
 
 const chartConfig = {
   duration: {
@@ -41,7 +41,11 @@ function MeetingHoursTooltip(props: RechartsTooltipProps<number, string>) {
           const value = Number(item.value)
           const formattedValue = Number.isNaN(value) ? "0" : formatFloat(value)
           return (
-            <div key={`item-${index}`} className="flex items-center gap-2 text-xs">
+            <div
+              // biome-ignore lint/suspicious/noArrayIndexKey: The index is required to be used to ensure the key is unique
+              key={`item-${index}`}
+              className="flex items-center gap-2 text-xs"
+            >
               <div
                 className="h-2 w-2 rounded-full"
                 style={{ backgroundColor: chartItem?.color || item.color }}

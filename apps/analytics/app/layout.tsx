@@ -1,15 +1,16 @@
 import "@/app/globals.css"
-import LayoutRoot from "@/app/layout-root"
-import Providers from "@/components/providers"
-import { Toaster } from "@/components/ui/sonner"
-import { getAuthAppUrl } from "@/lib/auth/auth-app-url"
-import { getAuthSession } from "@/lib/auth/session"
+import { getAuthAppUrl } from "@repo/shared/auth/auth-app-url"
+import { getAuthSession } from "@repo/shared/auth/session"
+import { BOT_ANALYTICS_URL } from "@repo/shared/lib/external-urls"
+import { isbot } from "isbot"
 import type { Metadata, Viewport } from "next"
 import { Sofia_Sans } from "next/font/google"
 import { cookies, headers } from "next/headers"
 import { redirect } from "next/navigation"
-import { isbot } from "isbot"
+import LayoutRoot from "@/app/layout-root"
 import NotFound from "@/app/not-found"
+import Providers from "@/components/providers"
+import { Toaster } from "@/components/ui/sonner"
 
 const sofiaSans = Sofia_Sans({
   subsets: ["latin"],
@@ -18,6 +19,7 @@ const sofiaSans = Sofia_Sans({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(BOT_ANALYTICS_URL),
   title: "Bot Analytics | Meeting BaaS",
   description:
     "Monitor usage, performance metrics, and duration trends for your meeting bots across platforms.",
@@ -47,7 +49,7 @@ export const metadata: Metadata = {
     description:
       "Monitor usage, performance metrics, and duration trends for your meeting bots across platforms.",
     siteName: "Meeting BaaS",
-    url: "https://analytics.meetingbaas.com",
+    url: BOT_ANALYTICS_URL,
     locale: "en_US",
     images: [
       {

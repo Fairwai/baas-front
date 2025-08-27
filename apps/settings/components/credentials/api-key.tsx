@@ -1,10 +1,10 @@
 "use client"
 
+import { Button } from "@repo/shared/components/ui/button"
+import { Input } from "@repo/shared/components/ui/input"
+import { Label } from "@repo/shared/components/ui/label"
+import { Check, Copy, Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Eye, EyeOff, Copy, Check } from "lucide-react"
-import { Label } from "@/components/ui/label"
 import { toast } from "sonner"
 
 interface ApiKeyProps {

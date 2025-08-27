@@ -1,37 +1,37 @@
 "use client"
 
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Button } from "@repo/shared/components/ui/button"
 import {
   Dialog,
+  DialogClose,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
   DialogDescription,
-  DialogClose
-} from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
+  DialogFooter,
+  DialogHeader,
+  DialogTitle
+} from "@repo/shared/components/ui/dialog"
+import { Form } from "@repo/shared/components/ui/form"
+import { useSession } from "@repo/shared/hooks/use-session"
 import { Loader2 } from "lucide-react"
-import { useSession } from "@/hooks/use-session"
-import { useBroadcastSender } from "@/hooks/use-broadcast-sender"
+import { useCallback, useEffect, useMemo, useState } from "react"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
+import { BroadcastStatus } from "@/components/broadcasts/broadcast-status"
+import { NoRecipientsAlert } from "@/components/broadcasts/no-recipients-alert"
+import { RecipientFormFields } from "@/components/broadcasts/recipient-form-fields"
 import { useBroadcastRecipients } from "@/hooks/use-broadcast-recipients"
+import { useBroadcastSender } from "@/hooks/use-broadcast-sender"
 import type { Content, RecipientWithStatus } from "@/lib/broadcast-types"
 import type { EmailFrequency, EmailType } from "@/lib/email-types"
-import type { BroadcastFormValues } from "@/lib/schemas/broadcast"
-import { NoRecipientsAlert } from "@/components/broadcasts/no-recipients-alert"
-import {
-  csvFileSchema,
-  type CsvRows,
-  recipientFormSchema,
-  type RecipientFormValues
-} from "@/lib/schemas/recipients"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
 import { downloadCsv, parseCsv } from "@/lib/parse-csv"
-import { RecipientFormFields } from "@/components/broadcasts/recipient-form-fields"
-import { BroadcastStatus } from "@/components/broadcasts/broadcast-status"
-import { Form } from "@/components/ui/form"
-import { toast } from "sonner"
+import type { BroadcastFormValues } from "@/lib/schemas/broadcast"
+import {
+  type CsvRows,
+  csvFileSchema,
+  type RecipientFormValues,
+  recipientFormSchema
+} from "@/lib/schemas/recipients"
 
 interface SendToSelectedRecipientsDialogProps {
   open: boolean
@@ -222,7 +222,7 @@ export function SendToSelectedRecipientsDialog({
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent showCloseButton={!isSending}>
+      <DialogContent hideCloseButton={isSending}>
         <DialogHeader>
           <DialogTitle>Send to Selected Recipients</DialogTitle>
           <DialogDescription className="sr-only">

@@ -1,11 +1,11 @@
-import { PageTitle } from "@/components/page-title"
-import { isMeetingBaasUser } from "@/lib/utils"
-import { getAuthSession } from "@/lib/auth/session"
+import { getAuthSession } from "@repo/shared/auth/session"
+import { Card, CardContent } from "@repo/shared/components/ui/card"
 import { cookies } from "next/headers"
-import { redirect } from "next/navigation"
 import Link from "next/link"
-import { Card, CardContent } from "@/components/ui/card"
+import { redirect } from "next/navigation"
 import { broadcastRoutes } from "@/components/broadcasts/broadcast-routes"
+import { PageTitle } from "@/components/page-title"
+import { isMeetingBaasUser } from "@/lib/app-utils"
 
 export default async function BroadcastsPage() {
   const requestCookies = await cookies()

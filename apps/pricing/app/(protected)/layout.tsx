@@ -1,4 +1,4 @@
-import { getAuthSession } from "@/lib/auth/session"
+import { getAuthSession } from "@repo/shared/auth/session"
 import type { Metadata } from "next"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"

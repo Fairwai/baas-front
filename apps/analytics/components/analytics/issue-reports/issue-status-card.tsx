@@ -1,11 +1,17 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { AnimatedNumber } from "@/components/ui/animated-number"
-import { LOGS_URL } from "@/lib/external-urls"
+import { AnimatedNumber } from "@repo/shared/components/ui/animated-number"
+import { Button } from "@repo/shared/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@repo/shared/components/ui/card"
+import { LOGS_URL } from "@repo/shared/lib/external-urls"
 import { ExternalLink } from "lucide-react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import type { UserReportedErrorStatus } from "@/lib/types"
 
 interface IssueStatusCardProps {

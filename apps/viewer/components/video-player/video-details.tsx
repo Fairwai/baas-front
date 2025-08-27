@@ -1,12 +1,12 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@repo/shared/components/ui/button"
 import { Download, File, Loader2 } from "lucide-react"
 import { useMemo, useState } from "react"
-import type { MeetingDataResponse } from "@/types/meeting-data"
 import { toast } from "sonner"
-import { getPlatformFromUrl } from "@/lib/utils"
-import { ZoomLogo } from "../icons/zoom"
-import { MicrosoftTeamsLogo } from "../icons/microsoft-teams"
-import { GoogleMeetLogo } from "../icons/google-meet"
+import { GoogleMeetLogo } from "@/components/icons/google-meet"
+import { MicrosoftTeamsLogo } from "@/components/icons/microsoft-teams"
+import { ZoomLogo } from "@/components/icons/zoom"
+import { getPlatformFromUrl } from "@/lib/app-utils"
+import type { MeetingDataResponse } from "@/types/meeting-data"
 
 const iconClasses = "size-6"
 

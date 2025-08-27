@@ -1,17 +1,15 @@
 "use client"
 
+import { Alert, AlertDescription } from "@repo/shared/components/ui/alert"
+import { Card, CardContent } from "@repo/shared/components/ui/card"
+import { RadioGroup } from "@repo/shared/components/ui/radio-group"
+import { cn } from "@repo/shared/lib/utils"
 import { Info } from "lucide-react"
-
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Card, CardContent } from "@/components/ui/card"
-import { RadioGroup } from "@/components/ui/radio-group"
-
+import { getDomainFrequency } from "@/components/email-preferences/domain-frequency"
+import { EmailFrequencyRadio } from "@/components/email-preferences/email-frequency-radio"
+import { frequencies } from "@/components/email-preferences/email-preference-card"
 import { useEmailPreferences } from "@/hooks/use-email-preferences"
 import type { DomainConfig, EmailFrequency, EmailType } from "@/lib/email-types"
-import { cn } from "@/lib/utils"
-import { EmailFrequencyRadio } from "@/components/email-preferences/email-frequency-radio"
-import { getDomainFrequency } from "@/components/email-preferences/domain-frequency"
-import { frequencies } from "@/components/email-preferences/email-preference-card"
 
 const ServiceWideFrequencies: EmailFrequency[] = [...frequencies, "Never"]
 

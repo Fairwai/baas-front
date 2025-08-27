@@ -1,4 +1,4 @@
-import { LOGS_URL } from "@/lib/external-urls"
+import { LOGS_URL } from "@repo/shared/lib/external-urls"
 
 interface PostMessageHandler {
   windowId: string

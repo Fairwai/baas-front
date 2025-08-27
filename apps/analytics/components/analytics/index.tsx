@@ -1,26 +1,24 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
-import { useRouter } from "next/navigation"
-import { useSearchParams } from "next/navigation"
-import {
-  DEFAULT_LIMIT,
-  LIMIT_STORAGE_KEY,
-  allLimitOptions
-} from "@/components/filters/limit-selector"
-import { updateSearchParams, validateDateRange } from "@/lib/search-params"
-import { validateFilterValues } from "@/lib/search-params"
-import type { FilterState } from "@/lib/types"
-import type { DateValueType } from "react-tailwindcss-datepicker"
-import { useBotStats } from "@/hooks/use-bot-stats"
+import { MainTabs } from "@repo/shared/components/ui/main-tabs"
+import { cn } from "@repo/shared/lib/utils"
 import { Loader2 } from "lucide-react"
-import Filters from "@/components/filters"
-import { MainTabs } from "@/components/ui/main-tabs"
 import dynamic from "next/dynamic"
-import { cn } from "@/lib/utils"
-import { SelectedErrorProvider } from "@/contexts/selected-error-context"
-import { SelectedBotsProvider } from "@/contexts/selected-bots-context"
+import { useRouter, useSearchParams } from "next/navigation"
+import { useEffect, useMemo, useState } from "react"
+import type { DateValueType } from "react-tailwindcss-datepicker"
 import { SelectedBotsButton } from "@/components/analytics/selected-bots-button"
+import Filters from "@/components/filters"
+import {
+  allLimitOptions,
+  DEFAULT_LIMIT,
+  LIMIT_STORAGE_KEY
+} from "@/components/filters/limit-selector"
+import { SelectedBotsProvider } from "@/contexts/selected-bots-context"
+import { SelectedErrorProvider } from "@/contexts/selected-error-context"
+import { useBotStats } from "@/hooks/use-bot-stats"
+import { updateSearchParams, validateDateRange, validateFilterValues } from "@/lib/search-params"
+import type { FilterState } from "@/lib/types"
 
 const Loading = () => (
   <div className="flex h-96 items-center justify-center">

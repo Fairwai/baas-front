@@ -1,6 +1,6 @@
+import { Skeleton } from "@repo/shared/components/ui/skeleton"
 import dayjs from "dayjs"
 import utc from "dayjs/plugin/utc"
-import { Skeleton } from "@/components/ui/skeleton"
 
 dayjs.extend(utc)
 

@@ -1,26 +1,32 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer } from "@/components/ui/chart"
-import { formatNumber } from "@/lib/utils"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@repo/shared/components/ui/card"
+import { ChartContainer } from "@repo/shared/components/ui/chart"
+import { formatNumber } from "@repo/shared/lib/utils"
+import { type ScaleOrdinal, scaleOrdinal } from "d3-scale"
+import { schemeTableau10 } from "d3-scale-chromatic"
 import { useMemo } from "react"
 import {
   Bar,
   BarChart,
   CartesianGrid,
   Cell,
+  type TooltipProps as RechartsTooltipProps,
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis,
-  type TooltipProps as RechartsTooltipProps
+  YAxis
 } from "recharts"
-import { type ScaleOrdinal, scaleOrdinal } from "d3-scale"
-import { schemeTableau10 } from "d3-scale-chromatic"
-import type { DurationDistributionEntry } from "@/lib/types"
 import { SelectedErrorBadge } from "@/components/analytics/selected-error-badge"
 import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
 import { getDurationDistributionData } from "@/lib/format-bot-stats"
+import type { DurationDistributionEntry } from "@/lib/types"
 
 function DurationDistributionTooltip(
   props: RechartsTooltipProps<number, string>,

@@ -1,9 +1,9 @@
-import { accountEmailSchema } from "./schemas/filters"
 import dayjs from "dayjs"
 import utc from "dayjs/plugin/utc"
 import type { DateValueType } from "react-tailwindcss-datepicker/dist/types"
 import type { FilterState } from "@/lib/filter-options"
 import { allEmailTypes } from "@/lib/filter-options"
+import { accountEmailSchema } from "@/lib/schemas/filters"
 
 dayjs.extend(utc)
 

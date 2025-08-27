@@ -1,7 +1,7 @@
+import { Badge, type badgeVariants } from "@repo/shared/components/ui/badge"
 import type { ColumnDef } from "@tanstack/react-table"
-import { SortableHeader } from "@/components/ui/sortable-header"
-import { getErrorMessageColor } from "@/lib/utils"
-import { Badge, type badgeVariants } from "@/components/ui/badge"
+import { SortableHeader } from "@/components/table/sortable-header"
+import { getErrorMessageColor } from "@/lib/app-utils"
 import type { ErrorTableEntry } from "@/lib/types"
 
 type Priority = "critical" | "high" | "medium" | "low"

@@ -1,5 +1,5 @@
+import { Alert, AlertDescription } from "@repo/shared/components/ui/alert"
 import { AlertCircle } from "lucide-react"
-import { Alert, AlertDescription } from "@/components/ui/alert"
 import { EmailIdTypeMap } from "@/components/broadcasts/logs/column-helpers"
 import type { EmailId } from "@/lib/email-types"
 

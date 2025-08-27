@@ -1,6 +1,5 @@
 "use client"
 
-import { usePathname } from "next/navigation"
 import {
   Sidebar,
   SidebarContent,
@@ -13,13 +12,14 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   useSidebar
-} from "@/components/ui/sidebar"
-import { domains } from "@/components/email-preferences/domains"
+} from "@repo/shared/components/ui/sidebar"
+import { cn } from "@repo/shared/lib/utils"
+import { Inbox, KeyRound, Mail, Trash } from "lucide-react"
 import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { KeyRound, Trash, Mail, Inbox } from "lucide-react"
+import { usePathname } from "next/navigation"
+import { type BroadcastRoute, broadcastRoutes } from "@/components/broadcasts/broadcast-routes"
+import { domains } from "@/components/email-preferences/domains"
 import type { DomainConfig } from "@/lib/email-types"
-import { broadcastRoutes, type BroadcastRoute } from "@/components/broadcasts/broadcast-routes"
 
 type SidebarNavItem = {
   title: string

@@ -30,7 +30,8 @@ export const SETTINGS_URL = `https://settings.${environment}${BASE_DOMAIN}`
 export const LOGS_URL = createUrl("logs")
 export const BOT_ANALYTICS_URL = createUrl("analytics")
 export const USAGE_URL = `${BOT_ANALYTICS_URL}/usage`
-export const BILLING_URL = `${createUrl("pricing")}/billing`
+export const PRICING_URL = createUrl("pricing")
+export const BILLING_URL = `${PRICING_URL}/billing`
 export const CREDENTIALS_URL = `${SETTINGS_URL}/credentials`
 export const STATUS_URL = createUrl("status")
 
@@ -67,9 +68,14 @@ export const GITHUB_REPO_URL = "https://github.com/Meeting-Baas/frontend"
 
 export const CONSUMPTION_URL = USAGE_URL
 
+export const VIEWER_URL = createUrl("viewer")
+
 //  Recording Viewer: build URL with dynamic recording `uuid` in the path.
-export const RECORDING_VIEWER_URL = `${createUrl("viewer")}/:uuid`
+export const RECORDING_VIEWER_URL = `${VIEWER_URL}/:uuid`
 
 // Grafana
 export const getGrafanaLogsUrl = (bot_uuid?: string) =>
   `https://meetingbaas.grafana.net/explore?schemaVersion=1&panes=%7B%225lu%22:%7B%22datasource%22:%22grafanacloud-logs%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22expr%22:%22%7Bbot_uuid%3D%5C%22${bot_uuid}%5C%22%7D+%7C%3D+%60%60%22,%22queryType%22:%22range%22,%22datasource%22:%7B%22type%22:%22loki%22,%22uid%22:%22grafanacloud-logs%22%7D,%22editorMode%22:%22builder%22,%22direction%22:%22backward%22%7D%5D,%22range%22:%7B%22from%22:%22now-2d%22,%22to%22:%22now%22%7D%7D%7D&orgId=1`
+
+// Webhook testing URL
+export const WEBHOOK_TEST_URL = "https://webhook.cool"

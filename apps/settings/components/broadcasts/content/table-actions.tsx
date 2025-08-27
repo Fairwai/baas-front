@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button"
-import type { Content } from "@/lib/broadcast-types"
+import { Button } from "@repo/shared/components/ui/button"
 import { Eye, Pencil, Trash } from "lucide-react"
 import { useState } from "react"
-import { ContentDetailDialog } from "@/components/broadcasts/content-detail-dialog"
-import type { EmailType } from "@/lib/email-types"
-import { EditContent } from "@/components/broadcasts/content/edit-content"
 import { DeleteContent } from "@/components/broadcasts/content/delete-content"
+import { EditContent } from "@/components/broadcasts/content/edit-content"
+import { ContentDetailDialog } from "@/components/broadcasts/content-detail-dialog"
+import type { Content } from "@/lib/broadcast-types"
+import type { EmailType } from "@/lib/email-types"
 
 export type DialogState = "view" | "edit" | "delete" | null
 

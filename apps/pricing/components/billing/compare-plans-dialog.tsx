@@ -1,3 +1,4 @@
+import { Button } from "@repo/shared/components/ui/button"
 import {
   Dialog,
   DialogClose,
@@ -6,10 +7,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle
-} from "@/components/ui/dialog"
+} from "@repo/shared/components/ui/dialog"
 import { ComparePlans } from "@/components/pricing/compare-plans"
 import type { PlanInfo } from "@/lib/plans/types"
-import { Button } from "@/components/ui/button"
 
 interface ComparePlansDialogProps {
   open: boolean

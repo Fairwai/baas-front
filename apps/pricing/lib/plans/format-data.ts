@@ -1,15 +1,15 @@
+import { getAuthAppUrl } from "@repo/shared/auth/auth-app-url"
+import { BILLING_URL } from "@repo/shared/lib/external-urls"
+import { getEnvVar } from "@/lib/app-utils"
+import { defaultPlanInfo, packFeatures } from "@/lib/plans/constants"
 import type {
   PlanInfo,
+  PlanMetadata,
   PlanType,
   ProductFetchResponse,
-  PlanMetadata,
   TokenPackInfo,
   TokenPackMetadata
 } from "@/lib/plans/types"
-import { defaultPlanInfo, packFeatures } from "@/lib/plans/constants"
-import { getAuthAppUrl } from "@/lib/auth/auth-app-url"
-import { BILLING_URL } from "@/lib/external-urls"
-import { getEnvVar } from "@/lib/utils"
 
 interface FormattedData {
   apiPlans: PlanInfo[]
@@ -57,9 +57,9 @@ export const formatData = (products: ProductFetchResponse): FormattedData => {
     const metadata = value.product.metadata as PlanMetadata
     apiPlans.push({
       productId: value.product.id,
-      concurrentBots: Number.parseInt(metadata.concurrentBots ?? "0"),
-      requestsPerSecond: Number.parseInt(metadata.requestsPerSecond ?? "0"),
-      tokenDiscount: Number.parseInt(metadata.tokenDiscount ?? "0"),
+      concurrentBots: Number.parseInt(metadata.concurrentBots ?? "0", 10),
+      requestsPerSecond: Number.parseInt(metadata.requestsPerSecond ?? "0", 10),
+      tokenDiscount: Number.parseInt(metadata.tokenDiscount ?? "0", 10),
       price: (value.prices[0].unit_amount / 100).toString(),
       billingScheme: value.prices[0].billing_scheme,
       currency: value.prices[0].currency,
@@ -81,7 +81,7 @@ export const formatData = (products: ProductFetchResponse): FormattedData => {
       price: value.prices[0].unit_amount / 100,
       stripePriceId: value.prices[0].id,
       features: packFeatures[key as PlanType],
-      tokens: Number.parseInt(metadata.tokens),
+      tokens: Number.parseInt(metadata.tokens, 10),
       isHighlighted: false,
       type: key as PlanType,
       redirectTo: getRedirectTo(key as PlanType, "token_pack"),

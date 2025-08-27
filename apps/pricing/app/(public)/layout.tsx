@@ -1,7 +1,7 @@
-import Footer from "@/components/footer"
-import Header from "@/components/header"
+import Footer from "@repo/shared/components/layout/footer"
 import type { Metadata } from "next"
 import { Toaster } from "sonner"
+import Header from "@/components/header"
 
 export const metadata: Metadata = {
   title: "Pricing | Meeting BaaS",
@@ -17,7 +17,7 @@ export default async function PublicLayout({
     <>
       <Header />
       <main className="flex grow flex-col">{children}</main>
-      <Footer page="Pricing" />
+      <Footer title="Pricing" />
       <Toaster />
     </>
   )

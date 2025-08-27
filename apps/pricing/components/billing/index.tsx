@@ -1,22 +1,21 @@
 "use client"
 
-import { useSubscription } from "@/hooks/use-subscription"
-import { genericError } from "@/lib/errors"
-import type { TokenPackInfo, PlanInfo } from "@/lib/plans/types"
+import { Accordion, AccordionContent, AccordionItem } from "@repo/shared/components/ui/accordion"
+import { Button } from "@repo/shared/components/ui/button"
 import { Loader2 } from "lucide-react"
-import type { SubscriptionResponse } from "@/lib/subscription/types"
-import { useSession } from "@/hooks/use-session"
-import { CurrentPlanCard } from "@/components/billing/current-plan-card"
-import { Accordion, AccordionContent, AccordionItem } from "@/components/ui/accordion"
-import { TokenCard } from "@/components/pricing/token-card"
-import { TokenUsageRates } from "@/components/billing/token-usage-rates"
-import { PurchaseDialog, type PurchaseDialogState } from "@/components/billing/purchase-dialog"
 import { useState } from "react"
 import { BillingPlanCard } from "@/components/billing/billing-plan-card"
-import { validatePlanSearchParam, validateTokenPackSearchParam } from "@/lib/utils"
-import { PaymentErrorDialog } from "@/components/billing/payment-error-dialog"
 import { ComparePlansDialog } from "@/components/billing/compare-plans-dialog"
-import { Button } from "@/components/ui/button"
+import { CurrentPlanCard } from "@/components/billing/current-plan-card"
+import { PaymentErrorDialog } from "@/components/billing/payment-error-dialog"
+import { PurchaseDialog, type PurchaseDialogState } from "@/components/billing/purchase-dialog"
+import { TokenUsageRates } from "@/components/billing/token-usage-rates"
+import { TokenCard } from "@/components/pricing/token-card"
+import { useSubscription } from "@/hooks/use-subscription"
+import { validatePlanSearchParam, validateTokenPackSearchParam } from "@/lib/app-utils"
+import { genericError } from "@/lib/errors"
+import type { PlanInfo, TokenPackInfo } from "@/lib/plans/types"
+import type { SubscriptionResponse } from "@/lib/subscription/types"
 
 interface BillingProps {
   apiPlans: PlanInfo[]
@@ -95,10 +94,7 @@ export default function Billing({
   return (
     <div className="relative space-y-4">
       {isSubscriptionLoading && !subscription ? (
-        <div
-          className="flex h-96 items-center justify-center"
-          aria-label="Loading subscription data"
-        >
+        <div className="flex h-96 items-center justify-center">
           <Loader2 className="size-8 animate-spin text-primary" />
         </div>
       ) : isSubscriptionError ? (

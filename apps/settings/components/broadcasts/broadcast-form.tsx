@@ -1,8 +1,7 @@
 "use client"
 
-import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { broadcastFormSchema, type BroadcastFormValues } from "@/lib/schemas/broadcast"
+import { Button } from "@repo/shared/components/ui/button"
 import {
   Form,
   FormControl,
@@ -11,23 +10,24 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from "@/components/ui/form"
+} from "@repo/shared/components/ui/form"
+import { Input } from "@repo/shared/components/ui/input"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select"
-import { Button } from "@/components/ui/button"
-import type { EmailType } from "@/lib/email-types"
-import { Input } from "@/components/ui/input"
+} from "@repo/shared/components/ui/select"
+import { Separator } from "@repo/shared/components/ui/separator"
+import { useForm } from "react-hook-form"
 import {
-  FrequencySelectOptions,
   botCountOptions,
+  FrequencySelectOptions,
   lastBotDaysOptions
 } from "@/components/broadcasts/broadcast-form-options"
-import { Separator } from "@/components/ui/separator"
+import type { EmailType } from "@/lib/email-types"
+import { type BroadcastFormValues, broadcastFormSchema } from "@/lib/schemas/broadcast"
 
 interface BroadcastFormProps {
   broadcastTypes: EmailType[]

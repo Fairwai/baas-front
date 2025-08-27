@@ -1,6 +1,6 @@
 /// <reference types="node" />
 
-import type { MeetingDataResponse } from "@/types/meeting-data";
+import type { MeetingDataResponse } from "@/types/meeting-data"
 
 /**
  * Get the meeting data for the current bot. Since it is called from RSCs,
@@ -13,35 +13,31 @@ import type { MeetingDataResponse } from "@/types/meeting-data";
 export async function getMeetingData(
   apiKey: string,
   bot_id: string,
-  include_transcripts: boolean = true
+  include_transcripts = true
 ): Promise<MeetingDataResponse | null> {
   const urlParams = new URLSearchParams({
     bot_id,
-    include_transcripts: include_transcripts.toString(),
-  });
+    include_transcripts: include_transcripts.toString()
+  })
   try {
     const response = await fetch(
-      `${
-        process.env.API_SERVER_BASEURL
-      }/bots/meeting_data?${urlParams.toString()}`,
+      `${process.env.API_SERVER_BASEURL}/bots/meeting_data?${urlParams.toString()}`,
       {
         method: "GET",
         headers: {
-          "x-meeting-baas-api-key": apiKey,
-        },
+          "x-meeting-baas-api-key": apiKey
+        }
       }
-    );
+    )
 
     if (!response.ok) {
-      throw new Error(
-        `Failed to get meeting data: ${response.status} ${response.statusText}`
-      );
+      throw new Error(`Failed to get meeting data: ${response.status} ${response.statusText}`)
     }
 
-    const data = await response.json();
-    return data;
+    const data = await response.json()
+    return data
   } catch (error) {
-    console.error("Error getting meeting data:", error);
-    return null;
+    console.error("Error getting meeting data:", error)
+    return null
   }
 }

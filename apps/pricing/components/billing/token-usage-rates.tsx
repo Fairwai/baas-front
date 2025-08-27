@@ -1,10 +1,10 @@
-import { tokenRates } from "@/lib/subscription/constants"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger
-} from "@/components/ui/accordion"
+} from "@repo/shared/components/ui/accordion"
+import { tokenRates } from "@/lib/subscription/constants"
 
 export function TokenUsageRates() {
   return (

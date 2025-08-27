@@ -1,15 +1,16 @@
 "use client"
 
-import type { PlanInfo, TokenPackInfo } from "@/lib/plans/types"
-import { Heading } from "@/components/layout/heading"
-import { PlanCard } from "@/components/pricing/plan-card"
-import { ComparePlans } from "@/components/pricing/compare-plans"
-import { TokenCard } from "@/components/pricing/token-card"
+import { Button } from "@repo/shared/components/ui/button"
 import { ArrowDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { FAQSection } from "@/components/pricing/faq-section"
 import { motion } from "motion/react"
 import { sectionVariant } from "@/components/animations/section"
+import { TokenUsageRates } from "@/components/billing/token-usage-rates"
+import { Heading } from "@/components/layout/heading"
+import { ComparePlans } from "@/components/pricing/compare-plans"
+import { FAQSection } from "@/components/pricing/faq-section"
+import { PlanCard } from "@/components/pricing/plan-card"
+import { TokenCard } from "@/components/pricing/token-card"
+import type { PlanInfo, TokenPackInfo } from "@/lib/plans/types"
 
 interface PricingProps {
   apiPlans: PlanInfo[]
@@ -69,6 +70,9 @@ export default function Pricing({ apiPlans, tokenPacks }: PricingProps) {
             />
           ))}
         </div>
+        <section className="pt-10">
+          <TokenUsageRates />
+        </section>
       </motion.section>
 
       <FAQSection />

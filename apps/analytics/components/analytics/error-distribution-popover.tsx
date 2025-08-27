@@ -1,7 +1,7 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { Button } from "@repo/shared/components/ui/button"
+import { Popover, PopoverContent, PopoverTrigger } from "@repo/shared/components/ui/popover"
 import { ErrorDistributionLegend } from "@/components/analytics/error-distribution-legend"
 import type { ErrorDistribution } from "@/lib/types"
 

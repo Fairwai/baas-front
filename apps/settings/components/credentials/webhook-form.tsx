@@ -1,8 +1,7 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { Button } from "@/components/ui/button"
+import { Button } from "@repo/shared/components/ui/button"
 import {
   Form,
   FormControl,
@@ -11,16 +10,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { webhookSchema, type WebhookFormData } from "@/lib/schemas/webhook"
-import Link from "next/link"
-import { WEBHOOK_TEST_URL } from "@/lib/external-urls"
-import { useEffect, useRef, useState } from "react"
-import { useWebhook } from "@/hooks/use-webhook"
+} from "@repo/shared/components/ui/form"
+import { Input } from "@repo/shared/components/ui/input"
+import { WEBHOOK_TEST_URL } from "@repo/shared/lib/external-urls"
 import { Check, Copy, Loader2 } from "lucide-react"
-import { updateWebhookUrl } from "@/lib/api/webhook-api"
+import Link from "next/link"
+import { useEffect, useRef, useState } from "react"
+import { useForm } from "react-hook-form"
 import { toast } from "sonner"
+import { useWebhook } from "@/hooks/use-webhook"
+import { updateWebhookUrl } from "@/lib/api/webhook-api"
+import { type WebhookFormData, webhookSchema } from "@/lib/schemas/webhook"
 
 export function WebhookForm() {
   const [isCopied, setIsCopied] = useState(false)

@@ -1,8 +1,3 @@
-import type { Content } from "@/lib/broadcast-types"
-import type { DialogState } from "@/components/broadcasts/content/table-actions"
-import { Button } from "@/components/ui/button"
-import { Loader2 } from "lucide-react"
-import { useContents } from "@/hooks/use-contents"
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -11,7 +6,12 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle
-} from "@/components/ui/alert-dialog"
+} from "@repo/shared/components/ui/alert-dialog"
+import { Button } from "@repo/shared/components/ui/button"
+import { Loader2 } from "lucide-react"
+import type { DialogState } from "@/components/broadcasts/content/table-actions"
+import { useContents } from "@/hooks/use-contents"
+import type { Content } from "@/lib/broadcast-types"
 
 interface DeleteContentProps {
   row: Content

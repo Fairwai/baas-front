@@ -1,9 +1,9 @@
+import { cookies } from "next/headers"
+import { cache } from "react"
 import Billing from "@/components/billing"
 import { formatData } from "@/lib/plans/format-data"
 import { fetchAllProducts } from "@/lib/plans/server-api"
 import { fetchServerSubscriptionsInfo } from "@/lib/subscription/server-api"
-import { cookies } from "next/headers"
-import { cache } from "react"
 
 const fetchCachedProducts = cache(fetchAllProducts)
 

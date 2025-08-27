@@ -1,5 +1,4 @@
-import type { TokenPackInfo, PlanInfo } from "@/lib/plans/types"
-import type { CheckoutMode } from "@/lib/subscription/types"
+import { Button } from "@repo/shared/components/ui/button"
 import {
   Dialog,
   DialogClose,
@@ -8,13 +7,13 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle
-} from "@/components/ui/dialog"
-import { useSubscription } from "@/hooks/use-subscription"
-import { Button } from "@/components/ui/button"
-import { Loader2 } from "lucide-react"
-import { useSearchParams } from "next/navigation"
-import { useRouter } from "next/navigation"
+} from "@repo/shared/components/ui/dialog"
 import { isEqual } from "lodash-es"
+import { Loader2 } from "lucide-react"
+import { useRouter, useSearchParams } from "next/navigation"
+import { useSubscription } from "@/hooks/use-subscription"
+import type { PlanInfo, TokenPackInfo } from "@/lib/plans/types"
+import type { CheckoutMode } from "@/lib/subscription/types"
 
 interface PurchaseDialogProps {
   purchaseDialog: PurchaseDialogState

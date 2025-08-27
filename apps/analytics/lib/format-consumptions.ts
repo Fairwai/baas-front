@@ -1,6 +1,6 @@
-import type { ConsumptionChartData, DailyTokenConsumption } from "@/lib/types"
 import dayjs from "dayjs"
-import { secondsToHours } from "./utils"
+import type { ConsumptionChartData, DailyTokenConsumption } from "@/lib/types"
+import { secondsToHours } from "./app-utils"
 
 /**
  * Calculate the total number of recording tokens consumed

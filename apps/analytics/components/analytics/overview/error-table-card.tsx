@@ -1,13 +1,19 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { DataTable } from "@/components/ui/data-table"
-import { errorTableColumns } from "@/components/analytics/overview/error-table-columns"
-import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
-import { useState, useEffect, useCallback } from "react"
-import { filterAndGroupErrorBots, getErrorTable } from "@/lib/format-bot-stats"
-import { SelectedErrorBadge } from "@/components/analytics/selected-error-badge"
-import type { SortingState, Row } from "@tanstack/react-table"
-import { useSelectedBots } from "@/hooks/use-selected-bots"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@repo/shared/components/ui/card"
+import type { Row, SortingState } from "@tanstack/react-table"
 import { debounce } from "lodash-es"
+import { useCallback, useEffect, useState } from "react"
+import { errorTableColumns } from "@/components/analytics/overview/error-table-columns"
+import { SelectedErrorBadge } from "@/components/analytics/selected-error-badge"
+import { DataTable } from "@/components/table/data-table"
+import { useSelectedBots } from "@/hooks/use-selected-bots"
+import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
+import { filterAndGroupErrorBots, getErrorTable } from "@/lib/format-bot-stats"
 import type { ErrorTableEntry } from "@/lib/types"
 
 export const ERROR_TABLE_SORT_STORAGE_KEY = "analytics-error-table-sort"

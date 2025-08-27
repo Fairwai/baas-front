@@ -1,9 +1,10 @@
 "use client"
 
-import type { Session } from "@/lib/auth/types"
-import ProtectedHeader from "@/components/protected-header"
-import Footer from "@/components/footer"
-import { useSession } from "@/hooks/use-session"
+import type { Session } from "@repo/shared/auth/types"
+import Footer from "@repo/shared/components/layout/footer"
+import ProtectedHeader from "@repo/shared/components/layout/header"
+import { useSession } from "@repo/shared/hooks/use-session"
+import { BILLING_URL } from "@repo/shared/lib/external-urls"
 import { useRouter } from "next/navigation"
 
 interface ProtectedLayoutClientProps {
@@ -25,9 +26,9 @@ export default function ProtectedLayoutClient({
 
   return (
     <>
-      <ProtectedHeader user={session.user} />
+      <ProtectedHeader user={session.user} currentPath={BILLING_URL} />
       <main className="flex grow flex-col">{children}</main>
-      <Footer page="Billing" />
+      <Footer title="Billing" />
     </>
   )
 }

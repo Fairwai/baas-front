@@ -1,5 +1,5 @@
+import { getEnvVar } from "@/lib/app-utils"
 import type { SubscriptionResponse } from "@/lib/subscription/types"
-import { getEnvVar } from "@/lib/utils"
 
 const apiServerBaseUrl = getEnvVar("API_SERVER_BASEURL")
 /**

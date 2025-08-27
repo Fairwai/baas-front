@@ -1,8 +1,8 @@
 "use client"
 
+import { Button } from "@repo/shared/components/ui/button"
+import { Card, CardContent } from "@repo/shared/components/ui/card"
 import type { DomainConfig } from "@/lib/email-types"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 
 interface UnsubscribedStateProps {
   domainConfig: DomainConfig

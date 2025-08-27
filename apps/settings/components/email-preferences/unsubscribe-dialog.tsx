@@ -1,7 +1,5 @@
 "use client"
 
-import { useSearchParams, useRouter } from "next/navigation"
-
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,10 +9,12 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle
-} from "@/components/ui/alert-dialog"
+} from "@repo/shared/components/ui/alert-dialog"
+import { useRouter, useSearchParams } from "next/navigation"
 
 import { useEmailPreferences } from "@/hooks/use-email-preferences"
 import type { EmailDomain, EmailType } from "@/lib/email-types"
+
 interface UnsubscribeDialogProps {
   isOpen: boolean
   onDialogClose: () => void

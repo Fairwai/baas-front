@@ -1,12 +1,11 @@
 "use client"
 
 import type { ColumnDef } from "@tanstack/react-table"
-import type { EmailLog } from "@/lib/broadcast-types"
-
-import { SortableHeader } from "@/components/ui/sortable-header"
-import { CopyTooltip } from "@/components/broadcasts/logs/copy-tooltip"
-import { formatSentAt } from "@/lib/utils"
+import { SortableHeader } from "@/components/app-ui/sortable-header"
 import { dateSort, EmailIdTypeMap } from "@/components/broadcasts/logs/column-helpers"
+import { CopyTooltip } from "@/components/broadcasts/logs/copy-tooltip"
+import { formatSentAt } from "@/lib/app-utils"
+import type { EmailLog } from "@/lib/broadcast-types"
 
 export const columns: ColumnDef<EmailLog>[] = [
   {

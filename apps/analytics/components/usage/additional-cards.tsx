@@ -1,7 +1,13 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { formatFloat } from "@/lib/utils"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@repo/shared/components/ui/card"
+import { Separator } from "@repo/shared/components/ui/separator"
 import type { ConsumptionData } from "@/hooks/use-consumption"
-import { Separator } from "@/components/ui/separator"
+import { formatFloat } from "@/lib/app-utils"
 
 interface AdditionalCardsProps {
   data: ConsumptionData

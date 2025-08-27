@@ -1,8 +1,10 @@
+import { getAuthAppUrl } from "@repo/shared/auth/auth-app-url"
+import { VIEWER_URL } from "@repo/shared/lib/external-urls"
+import { isbot } from "isbot"
 import { type NextRequest, NextResponse } from "next/server"
-import { getAuthAppUrl } from "@/lib/auth/auth-app-url"
 
-if (!process.env.AUTH_COOKIE_NAME) {
-  throw new Error("AUTH_COOKIE_NAME environment variable is not defined")
+if (!process.env.AUTH_COOKIE_PREFIX) {
+  throw new Error("AUTH_COOKIE_PREFIX environment variable is not defined")
 }
 
 const authAppUrl = getAuthAppUrl()
@@ -10,12 +12,25 @@ const authAppUrl = getAuthAppUrl()
 export async function middleware(request: NextRequest) {
   // Check if auth cookie exists before processing request
   // Fetch session in RSC/APIs to further protect a route
-  const authCookieName = process.env.AUTH_COOKIE_NAME
+  const authCookieName = `${process.env.AUTH_COOKIE_PREFIX}.session_token`
   const cookie = authCookieName ? request.cookies.get(authCookieName) : undefined
   const response = NextResponse.next()
+  const userAgent = request.headers.get("user-agent")
+
+  // If the request is from a bot, let it pass through
+  // This is to prevent bots from being redirected to the auth app
+  if (isbot(userAgent)) {
+    return NextResponse.next()
+  }
 
   const signInUrl = `${authAppUrl}/sign-in`
-  const appUrl = request.nextUrl.origin
+  // If the app is self hosted, get the app url from the environment configuration
+  // When hosted on Vercel, the origin is the same as the auth app url
+  // In development, the origin is the same as the auth app url
+  const appUrl =
+    process.env.NODE_ENV === "development" || process.env.SELF_HOST !== "true"
+      ? request.nextUrl.origin
+      : VIEWER_URL
   const redirectTo = `${appUrl}${request.nextUrl.pathname}${request.nextUrl.search}`
 
   if (!cookie) {

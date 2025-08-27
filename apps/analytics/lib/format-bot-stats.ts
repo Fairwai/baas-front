@@ -1,31 +1,31 @@
-import type {
-  ErrorDistribution,
-  ErrorTableEntry,
-  ErrorPriority,
-  FormattedBotData,
-  NormalizedErrorGroup,
-  PlatformDistribution,
-  PlatformName,
-  WebhookErrorGroup,
-  TimelineEntry,
-  DurationTimelineEntry,
-  PlatformDurationEntry,
-  DurationDistributionEntry,
-  IssueReportData
-} from "@/lib/types"
-import { map, groupBy, sumBy } from "lodash-es"
-import { allErrorCategories } from "@/lib/filter-options"
+import dayjs from "dayjs"
+import { groupBy, map, sumBy } from "lodash-es"
 import {
   extractStalledHours,
   extractWebhookStatus,
+  getBotsWithDuration,
   getErrorPlatformDistribution,
   getPriorityForError,
   getStalledErrorType,
   getUniqueDates,
-  getUniquePriorities,
-  getBotsWithDuration
-} from "@/lib/utils"
-import dayjs from "dayjs"
+  getUniquePriorities
+} from "@/lib/app-utils"
+import { allErrorCategories } from "@/lib/filter-options"
+import type {
+  DurationDistributionEntry,
+  DurationTimelineEntry,
+  ErrorDistribution,
+  ErrorPriority,
+  ErrorTableEntry,
+  FormattedBotData,
+  IssueReportData,
+  NormalizedErrorGroup,
+  PlatformDistribution,
+  PlatformDurationEntry,
+  PlatformName,
+  TimelineEntry,
+  WebhookErrorGroup
+} from "@/lib/types"
 
 type Dictionary<T> = { [key: string]: T }
 
@@ -228,7 +228,7 @@ function processUnknownErrors(bots: FormattedBotData[]): NormalizedErrorGroup[] 
   }
 
   // Convert groups to normalized format
-  return Object.entries(unknownGroups).map(([details, { messages, bots }]) => ({
+  return Object.entries(unknownGroups).map(([_details, { messages, bots }]) => ({
     type: "Unknown Error",
     message: messages[0],
     bots

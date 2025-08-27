@@ -1,7 +1,17 @@
 import { useQuery } from "@tanstack/react-query"
-import { fetchBotStats } from "@/lib/api"
 import dayjs from "dayjs"
+import { fetchBotStats } from "@/lib/api"
+import {
+  applyUserReportedErrorStatus,
+  filterAndGroupErrorBots,
+  getErrorDistribution,
+  getErrorTable,
+  getIssueReportData,
+  getPlatformDistribution,
+  getPlatformFromUrl
+} from "@/lib/format-bot-stats"
 import type {
+  BotPaginated,
   ErrorDistribution,
   ErrorTableEntry,
   FilterState,
@@ -9,16 +19,6 @@ import type {
   IssueReportData,
   PlatformDistribution
 } from "@/lib/types"
-import {
-  getErrorDistribution,
-  getErrorTable,
-  getPlatformDistribution,
-  getPlatformFromUrl,
-  getIssueReportData,
-  filterAndGroupErrorBots,
-  applyUserReportedErrorStatus
-} from "@/lib/format-bot-stats"
-import type { BotPaginated } from "@/lib/types"
 
 interface UseBotStatsParams {
   offset: number

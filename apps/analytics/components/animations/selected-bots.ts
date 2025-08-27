@@ -1,4 +1,4 @@
-import type { Variants } from "motion/react"
+import type { Transition, Variants } from "motion/react"
 
 export const containerVariants: Variants = {
   initial: { opacity: 0, y: 10, scale: 0.95 },
@@ -6,7 +6,7 @@ export const containerVariants: Variants = {
   exit: { opacity: 0, y: -10, scale: 0.95 }
 }
 
-export const containerTransition = {
+export const containerTransition: Transition = {
   duration: 0.15,
   type: "spring",
   stiffness: 400,
@@ -19,7 +19,7 @@ export const allLogsButtonVariants: Variants = {
   exit: { opacity: 0, y: -10 }
 }
 
-export const allLogsButtonTransition = {
+export const allLogsButtonTransition: Transition = {
   duration: 0.15
 }
 

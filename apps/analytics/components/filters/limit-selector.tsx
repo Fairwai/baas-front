@@ -4,10 +4,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select"
+} from "@repo/shared/components/ui/select"
+import { useSession } from "@repo/shared/hooks/use-session"
 import { useEffect } from "react"
-import { isMeetingBaasUser } from "@/lib/utils"
-import { useSession } from "@/hooks/use-session"
+import { isMeetingBaasUser } from "@/lib/app-utils"
 
 export const LIMIT_STORAGE_KEY = "analytics-limit"
 

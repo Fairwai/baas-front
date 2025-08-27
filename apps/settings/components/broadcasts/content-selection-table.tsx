@@ -1,16 +1,16 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
-import { DataTable } from "@/components/ui/data-table"
+import { Button } from "@repo/shared/components/ui/button"
+import { Checkbox } from "@repo/shared/components/ui/checkbox"
 import type { ColumnDef } from "@tanstack/react-table"
-import type { Content } from "@/lib/broadcast-types"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Button } from "@/components/ui/button"
-import type { EmailType } from "@/lib/email-types"
+import { useEffect, useMemo, useState } from "react"
+import { DataTable } from "@/components/app-ui/data-table"
 import { baseContentColumns } from "@/components/broadcasts/content/columns"
-import { SendToSelectedRecipientsDialog } from "@/components/broadcasts/send-to-selected-recipients-dialog"
-import type { BroadcastFormValues } from "@/lib/schemas/broadcast"
 import { SendBroadcastDialog } from "@/components/broadcasts/send-broadcast-dialog"
+import { SendToSelectedRecipientsDialog } from "@/components/broadcasts/send-to-selected-recipients-dialog"
+import type { Content } from "@/lib/broadcast-types"
+import type { EmailType } from "@/lib/email-types"
+import type { BroadcastFormValues } from "@/lib/schemas/broadcast"
 
 interface ContentSelectionTableProps {
   broadcastTypes: EmailType[]

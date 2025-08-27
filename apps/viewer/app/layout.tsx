@@ -1,14 +1,15 @@
 import "@/app/globals.css"
-import { Toaster } from "@/components/ui/sonner"
-import { getAuthSession } from "@/lib/auth/session"
+import { getAuthAppUrl } from "@repo/shared/auth/auth-app-url"
+import { getAuthSession } from "@repo/shared/auth/session"
+import { Toaster } from "@repo/shared/components/ui/sonner"
 import type { Metadata, Viewport } from "next"
 import { Sofia_Sans } from "next/font/google"
 import { cookies, headers } from "next/headers"
 import { redirect } from "next/navigation"
+import { cache } from "react"
 import LayoutRoot from "@/app/layout-root"
 import Providers from "@/components/providers"
-import { getAuthAppUrl } from "@/lib/auth/auth-app-url"
-import { cache } from "react"
+
 const sofiaSans = Sofia_Sans({
   subsets: ["latin"],
   display: "swap",

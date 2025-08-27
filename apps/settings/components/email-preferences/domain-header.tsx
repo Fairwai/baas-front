@@ -1,9 +1,9 @@
 "use client"
 
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@repo/shared/components/ui/badge"
+import { Card, CardContent } from "@repo/shared/components/ui/card"
+import { cn } from "@repo/shared/lib/utils"
 import type { DomainConfig } from "@/lib/email-types"
-import { cn } from "@/lib/utils"
 
 interface DomainHeaderProps {
   config: DomainConfig

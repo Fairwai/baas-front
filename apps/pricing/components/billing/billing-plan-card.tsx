@@ -1,6 +1,5 @@
-import type { PlanInfo } from "@/lib/plans/types"
-import { cn } from "@/lib/utils"
-import { Check, Loader2 } from "lucide-react"
+import { Badge } from "@repo/shared/components/ui/badge"
+import { Button } from "@repo/shared/components/ui/button"
 import {
   Card,
   CardContent,
@@ -8,13 +7,14 @@ import {
   CardFooter,
   CardHeader,
   CardTitle
-} from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import type { SubscriptionResponse } from "@/lib/subscription/types"
-import { useSubscription } from "@/hooks/use-subscription"
-import { spotlightVariant } from "@/components/animations/background"
+} from "@repo/shared/components/ui/card"
+import { cn } from "@repo/shared/lib/utils"
+import { Check, Loader2 } from "lucide-react"
 import { motion } from "motion/react"
+import { spotlightVariant } from "@/components/animations/background"
+import { useSubscription } from "@/hooks/use-subscription"
+import type { PlanInfo } from "@/lib/plans/types"
+import type { SubscriptionResponse } from "@/lib/subscription/types"
 
 interface BillingPlanCardProps {
   plan: PlanInfo
@@ -43,7 +43,7 @@ export function BillingPlanCard({
   return (
     <Card className={cn("relative", isCurrentPlan && "border-primary")}>
       {isCurrentPlan && (
-        <Badge variant="primary" className="-top-4 -translate-x-1/2 absolute left-1/2">
+        <Badge variant="default" className="-top-4 -translate-x-1/2 absolute left-1/2">
           Current Plan
         </Badge>
       )}

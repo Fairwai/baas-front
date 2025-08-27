@@ -1,22 +1,29 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer } from "@/components/ui/chart"
-import { formatNumber, platformColors } from "@/lib/utils"
+import { AnimatedNumber } from "@repo/shared/components/ui/animated-number"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@repo/shared/components/ui/card"
+import { ChartContainer } from "@repo/shared/components/ui/chart"
+import { formatNumber } from "@repo/shared/lib/utils"
 import { useMemo } from "react"
 import {
   Cell,
   Pie,
   PieChart,
+  type TooltipProps as RechartsTooltipProps,
   ResponsiveContainer,
-  Tooltip,
-  type TooltipProps as RechartsTooltipProps
+  Tooltip
 } from "recharts"
-import { AnimatedNumber } from "@/components/ui/animated-number"
-import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
-import type { PlatformDistribution } from "@/lib/types"
-import { getPlatformDistribution } from "@/lib/format-bot-stats"
 import { SelectedErrorBadge } from "@/components/analytics/selected-error-badge"
+import { useSelectedErrorContext } from "@/hooks/use-selected-error-context"
+import { platformColors } from "@/lib/app-utils"
+import { getPlatformDistribution } from "@/lib/format-bot-stats"
+import type { PlatformDistribution } from "@/lib/types"
 
 const otherStatus = "var(--other-status)"
 

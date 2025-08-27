@@ -66,3 +66,10 @@ export function generateUUID(): string {
     return v.toString(16)
   })
 }
+
+/**
+ * Formats a number with commas as thousands separators
+ */
+export function formatNumber(value: number): string {
+  return new Intl.NumberFormat().format(value)
+}

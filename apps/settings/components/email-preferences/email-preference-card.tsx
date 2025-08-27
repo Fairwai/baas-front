@@ -1,16 +1,14 @@
 "use client"
 
+import { Badge } from "@repo/shared/components/ui/badge"
+import { Button } from "@repo/shared/components/ui/button"
+import { Card, CardContent, CardHeader } from "@repo/shared/components/ui/card"
+import { RadioGroup } from "@repo/shared/components/ui/radio-group"
 import { Loader2, RefreshCw } from "lucide-react"
 import { toast } from "sonner"
-
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { RadioGroup } from "@/components/ui/radio-group"
-
+import { EmailFrequencyRadio } from "@/components/email-preferences/email-frequency-radio"
 import { useEmailPreferences } from "@/hooks/use-email-preferences"
 import type { EmailFrequency, EmailType } from "@/lib/email-types"
-import { Button } from "@/components/ui/button"
-import { EmailFrequencyRadio } from "@/components/email-preferences/email-frequency-radio"
 
 interface EmailPreferenceProps {
   emailType: EmailType

@@ -62,7 +62,7 @@ export function AdditionalCards({ data, dateRangeFormatted }: AdditionalCardsPro
           <div className="font-bold text-4xl">
             {formatFloat(
               chartData?.length > 0
-                ? chartData.reduce((sum, day) => sum + (day.duration || 0), 0) / 3600
+                ? chartData.reduce((sum, day) => sum + (day.duration || 0), 0)
                 : 0
             )}
           </div>

@@ -1,13 +1,14 @@
 import { getAuthAppUrl } from "@repo/shared/auth/auth-app-url"
 import type { User } from "@repo/shared/auth/types"
 import { GitHubLogo } from "@repo/shared/components/icons/github"
+import { IntroducingV2Button } from "@repo/shared/components/layout/header/introducing-v2-button"
 import { ThemeToggle } from "@repo/shared/components/layout/header/theme-toggle"
 import { UserAvatar } from "@repo/shared/components/layout/header/user-avatar"
 import { Button } from "@repo/shared/components/ui/button"
 import { GITHUB_REPO_URL } from "@repo/shared/lib/external-urls"
+import { cn } from "@repo/shared/lib/utils"
 import Image from "next/image"
 import Link from "next/link"
-import { cn } from "@/lib/utils"
 
 interface HeaderProps {
   user: User
@@ -35,6 +36,7 @@ export default function Header({ user, currentPath, headerClassName }: HeaderPro
               className="h-5 w-5"
             />
             <span className="font-bold text-md">Meeting BaaS</span>
+            <IntroducingV2Button />
           </div>
         </Link>
         <div className="flex items-center gap-3">
